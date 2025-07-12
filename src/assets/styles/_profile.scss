@@ -1,0 +1,174 @@
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.profile {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  word-break: keep-all;
+  z-index: 2;
+
+  *::selection {
+    background-color: #f58aff6f;
+    color: #1a1a1a;
+  }
+
+  .scroll-reveal {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .ani_icon {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    border-bottom: 2px solid #1a1a1a;
+    margin: 0 auto 30px;
+    overflow: hidden;
+
+    .sun {
+      position: absolute;
+      width: 100%;
+      height: 200%;
+      animation: rotate 4s linear infinite normal;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 50%;
+        width: 30px;
+        height: 30px;
+        margin-left: 15px;
+        border-radius: 50%;
+        background-color: #1a1a1a;
+        outline: 5px dotted #1a1a1a;
+        outline-offset: 5px;
+        animation: rotate 4s linear infinite reverse;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        width: 30px;
+        height: 30px;
+        box-sizing: border-box;
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 0;
+        border-color: #1a1a1a;
+        background-color: #1a1a1a;
+        animation: rotate 4s linear infinite reverse;
+      }
+
+      &.type00 {
+        &:after {
+          outline: 2px solid #1a1a1a;
+          background-color: transparent;
+        }
+      }
+
+      &.type01 {
+        &:after {
+          border-right-width: 5px;
+          background-color: transparent;
+        }
+      }
+
+      &.type02 {
+        &:after {
+          border-right-width: 12px;
+          background-color: transparent;
+        }
+      }
+
+      &.type03 {
+        &:after {
+          border-left: 7px solid #1a1a1a;
+        }
+      }
+
+      &.type05 {
+        &:after {
+          border-right: 7px solid #000;
+        }
+      }
+
+      &.type06 {
+        &:after {
+          border-left: 12px solid #1a1a1a;
+          background-color: transparent;
+        }
+      }
+
+      &.type07 {
+        &:after {
+          border-left: 5px solid #1a1a1a;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .char {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      row-gap: 10px;
+      width: 150px;
+      height: 160px;
+
+      svg {
+        path {
+          stroke: #1a1a1a;
+          stroke-width: 3;
+          stroke-dashoffset: 220px;
+          stroke-dasharray: 220px;
+          fill: transparent;
+          transition: stroke-dashoffset 1s linear;
+        }
+      }
+
+      p {
+        width: 100%;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.active {
+    .char {
+      svg {
+        path {
+          stroke-dashoffset: 0px;
+
+          @for $i from 2 through 12 {
+            &:nth-child(#{$i}) {
+              transition-delay: 500ms * ($i * 0.1);
+            }
+          }
+        }
+      }
+    }
+  }
+}

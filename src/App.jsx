@@ -1,74 +1,68 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import axios from 'axios'
-import '@/assets/styles/App.scss'
-import Iridescence from '@/components/Iridescence';
+import { useState, useRef, useEffect, useMemo } from "react";
+
+import "@/assets/styles/App.scss";
+
+import Nav from "@/components/Nav/Nav";
+import Home from "@/components/Home/Home";
+import Profile from "@/components/Profile";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [activeSection, setActiveSection] = useState("Intro");
 
+  // 각 섹션의 ref를 저장
+  const sectionRefs = useRef({});
 
-  useEffect( () => {
-    
-    const getData = async () => {
-      try {
-        const key = import.meta.env.VITE_TOUR_KEY
-        
-        const response = await axios.get('/api/getTourKorAttractList', {
-          params: {
-            serviceKey: key,
-          },
-        })
-        
-        // XML 문자열을 DOM 객체로 파싱
-        const parser = new DOMParser()
-        const xmlDoc = parser.parseFromString(response.data, 'text/xml')
+  const sections = useMemo(
+    () => [
+      { id: "Intro", label: "Intro" },
+      { id: "About Me", label: "About Me" },
+      { id: "Site Lists", label: "Site Lists" },
+      { id: "My Project", label: "My Project" },
+    ],
+    []
+  );
 
-        // XML에서 데이터 추출
-        const items = xmlDoc.getElementsByTagName('item') // 예시
-        console.log(items)
-        
-      } catch (error) {
-        console.error(error)
-      }
-      
+  // 네비게이션 버튼 클릭 핸들러
+  const handleSectionClick = (sectionId) => {
+    const sectionRef = sectionRefs.current[sectionId];
+    if (sectionRef) {
+      sectionRef.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+      setActiveSection(sectionId);
     }
+  };
 
+  // 스크롤 위치에 따라 활성 섹션 감지
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200;
 
-    getData()
-  },[])
+      sections.forEach((section) => {
+        const sectionRef = sectionRefs.current[section.id];
+        if (sectionRef) {
+          const offsetTop = sectionRef.offsetTop;
+          const offsetBottom = offsetTop + sectionRef.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setActiveSection(section.id);
+          }
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [sections]);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <Iridescence
-        color={[1, 1, 1]}
-        mouseReact={true}
-        amplitude={0.005}
-        speed={0.2}
-      />
+      <Nav activeSection={activeSection} onSectionClick={handleSectionClick} />
+      <Home sectionRef={(el) => (sectionRefs.current["Intro"] = el)} isActive={activeSection === "Intro"} />
+      <Profile sectionRef={(el) => (sectionRefs.current["About Me"] = el)} isActive={activeSection === "About Me"} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

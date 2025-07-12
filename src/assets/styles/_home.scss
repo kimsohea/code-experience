@@ -1,0 +1,41 @@
+.home {
+  width: 100%;
+
+  *::selection {
+    background-color: #9f8aff94;
+    color: #fafafa;
+  }
+
+  .home_tit {
+    position: relative;
+    z-index: 2;
+    color: #1a1a1a;
+    font-size: 100px;
+    font-weight: 700;
+  }
+
+  .home_txt {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
+  }
+
+  .deco_txt {
+    position: absolute;
+    left: 0;
+    top: 20px;
+    z-index: 2;
+    width: 100%;
+    height: 110px;
+    overflow: hidden;
+
+    &.btm {
+      top: initial;
+      bottom: 20px;
+    }
+  }
+}
