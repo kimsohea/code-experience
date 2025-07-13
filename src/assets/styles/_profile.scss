@@ -71,54 +71,43 @@
         border-style: solid;
         border-width: 0;
         border-color: #1a1a1a;
-        background-color: #1a1a1a;
+        background-color: transparent;
         animation: rotate 4s linear infinite reverse;
       }
 
       &.type00 {
         &:after {
-          outline: 2px solid #1a1a1a;
-          background-color: transparent;
+          border-right-width: 5px;
         }
       }
 
       &.type01 {
         &:after {
-          border-right-width: 5px;
-          background-color: transparent;
+          border-right-width: 12px;
         }
       }
 
       &.type02 {
         &:after {
-          border-right-width: 12px;
-          background-color: transparent;
+          border-right: 7px solid #1a1a1a;
         }
       }
 
       &.type03 {
         &:after {
-          border-left: 7px solid #1a1a1a;
+          background-color: #1a1a1a;
+        }
+      }
+
+      &.type04 {
+        &:after {
+          border-left: 12px solid #1a1a1a;
         }
       }
 
       &.type05 {
         &:after {
-          border-right: 7px solid #000;
-        }
-      }
-
-      &.type06 {
-        &:after {
-          border-left: 12px solid #1a1a1a;
-          background-color: transparent;
-        }
-      }
-
-      &.type07 {
-        &:after {
           border-left: 5px solid #1a1a1a;
-          background-color: transparent;
         }
       }
     }

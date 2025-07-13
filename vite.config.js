@@ -14,6 +14,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },
+      "/date": {
+        target: "https://apis.data.go.kr/B090041/openapi/service/LrsrCldInfoService/getLunCalInfo",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/date/, ""),
+      },
     },
   },
   resolve: {

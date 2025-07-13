@@ -1,6 +1,10 @@
+import useLunState from "@/hooks/useLunState";
+
 import ScrollReveal from "@/components/lib/ScrollReveal";
 
 const Profile = ({ sectionRef, isActive }) => {
+  const { idx } = useLunState();
+
   const textArr = [
     "시경(詩經) 주송(周頌) 경지(敬之)에서 유래한 사자성어로",
     "‘날마다 달마다 성장한다’는 뜻을 가집니다,",
@@ -15,7 +19,7 @@ const Profile = ({ sectionRef, isActive }) => {
   return (
     <section className={isActive ? "profile active" : "profile"} ref={sectionRef}>
       <figure className="ani_icon">
-        <figure className="sun"></figure>
+        <figure className={`sun type0${idx}`}></figure>
       </figure>
       <ul className="char">
         <li>

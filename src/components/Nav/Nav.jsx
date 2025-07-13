@@ -1,4 +1,9 @@
+import useLunState from "@/hooks/useLunState";
+
+import MoonShape from "@/components/MoonShape";
+
 const Nav = ({ activeSection, onSectionClick }) => {
+  const { idx } = useLunState();
   const sections = [
     { id: "Intro", label: "Intro" },
     { id: "About Me", label: "About Me" },
@@ -8,6 +13,8 @@ const Nav = ({ activeSection, onSectionClick }) => {
 
   return (
     <header className="header">
+      <h1>日就月將</h1>
+      <MoonShape className={`type0${idx}`} />
       <nav className="navi">
         <ul className="flex ">
           {sections.map((section) => (

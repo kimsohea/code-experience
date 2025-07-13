@@ -1,9 +1,12 @@
 import SplitText from "@/components/lib/SplitText";
-import CurvedLoop from "@/components/lib/CurvedLoop";
+import TopText from "./TopText";
+import HomeBnr from "./HomeBnr";
 
 const Home = ({ sectionRef, isActive }) => {
   return (
     <section className={isActive ? "home active" : "home"} ref={sectionRef}>
+      <TopText />
+      <HomeBnr />
       <ul className="home_txt">
         <li>
           <SplitText
@@ -34,21 +37,6 @@ const Home = ({ sectionRef, isActive }) => {
           />
         </li>
       </ul>
-      <CurvedLoop
-        interactive={false}
-        speed={0.5}
-        curveAmount={0}
-        className="deco_txt"
-        marqueeText={"동사 1. 나날이 다달이 자라거나 발전하다."}
-      />
-      <CurvedLoop
-        interactive={false}
-        direction={"right"}
-        speed={0.5}
-        curveAmount={0}
-        className="deco_txt btm"
-        marqueeText={"동사 1. 나날이 다달이 자라거나 발전하다."}
-      />
     </section>
   );
 };
