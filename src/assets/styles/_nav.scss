@@ -160,6 +160,7 @@
     &.active {
       &::before {
         height: 100vh;
+        height: 100dvh;
         opacity: 1;
       }
 

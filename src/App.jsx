@@ -11,7 +11,7 @@ import SiteList from "@/components/SiteList";
 
 function App() {
   const [activeSection, setActiveSection] = useState("Intro");
-  const { date, name, getDate } = useLunState();
+  const { getDate } = useLunState();
 
   // 각 섹션의 ref를 저장
   const sectionRefs = useRef({});
@@ -40,7 +40,6 @@ function App() {
 
   useEffect(() => {
     getDate();
-    console.log(date, name);
   }, []);
 
   // 스크롤 위치에 따라 활성 섹션 감지

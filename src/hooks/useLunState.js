@@ -47,6 +47,14 @@ const useLunState = create((set, get) => ({
     },
   ],
 
+  // API 기본 URL 설정
+  getApiUrl: () => {
+    return (
+      import.meta.env.VITE_API_BASE_URL ||
+      "https://apis.data.go.kr/B090041/openapi/service/LrsrCldInfoService/getLunCalInfo"
+    );
+  },
+
   // 날짜 포맷팅 헬퍼 함수
   formatDate: (date) => {
     const year = date.getFullYear();
@@ -93,14 +101,16 @@ const useLunState = create((set, get) => ({
 
     try {
       const key = import.meta.env.VITE_DATE_KEY;
+      const apiUrl = state.getApiUrl();
 
-      const response = await axios.get("/date", {
+      const response = await axios.get(apiUrl, {
         params: {
           ServiceKey: key,
           solYear: year,
           solMonth: month,
           solDay: day,
         },
+        timeout: 10000,
       });
 
       const _data = response?.data?.response?.body?.items?.item;
