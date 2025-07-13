@@ -22,39 +22,58 @@ function App() {
     []
   );
 
-  // 네비게이션 버튼 클릭 핸들러
+  // 클릭 핸들러도 수정
   const handleSectionClick = (sectionId) => {
     const sectionRef = sectionRefs.current[sectionId];
-    if (sectionRef) {
+    if (sectionRef && sectionId !== activeSection) {
+      // 이미 활성화된 섹션이면 스킵
       sectionRef.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
-      setActiveSection(sectionId);
     }
   };
 
   // 스크롤 위치에 따라 활성 섹션 감지
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY + 200;
 
-      sections.forEach((section) => {
-        const sectionRef = sectionRefs.current[section.id];
-        if (sectionRef) {
-          const offsetTop = sectionRef.offsetTop;
-          const offsetBottom = offsetTop + sectionRef.offsetHeight;
+          // 현재 활성 섹션만 체크하여 불필요한 계산 최소화
+          let newActiveSection = activeSection;
 
-          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-            setActiveSection(section.id);
+          for (const section of sections) {
+            const sectionRef = sectionRefs.current[section.id];
+            if (sectionRef) {
+              const offsetTop = sectionRef.offsetTop;
+              const offsetBottom = offsetTop + sectionRef.offsetHeight;
+
+              if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+                newActiveSection = section.id;
+                break; // 찾으면 즉시 중단
+              }
+            }
           }
-        }
-      });
+
+          // 실제로 변경되었을 때만 상태 업데이트
+          if (newActiveSection !== activeSection) {
+            setActiveSection(newActiveSection);
+          }
+
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // passive 옵션으로 성능 최적화
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [sections]);
+  }, [sections, activeSection]);
 
   return (
     <>
