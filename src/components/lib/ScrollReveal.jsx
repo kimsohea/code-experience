@@ -46,9 +46,9 @@ const ScrollReveal = ({
         scrollTrigger: {
           trigger: el,
           scroller,
-          start: "top center+=20%",
+          start: "top center",
           end: rotationEnd,
-          scrub: 5,
+          scrub: 2,
         },
       }
     );
@@ -66,9 +66,9 @@ const ScrollReveal = ({
         scrollTrigger: {
           trigger: el,
           scroller,
-          start: "top center+=20%",
+          start: "top center",
           end: wordAnimationEnd,
-          scrub: 5,
+          scrub: 1,
         },
       }
     );
@@ -85,9 +85,9 @@ const ScrollReveal = ({
           scrollTrigger: {
             trigger: el,
             scroller,
-            start: "top center+=20%",
+            start: "top center",
             end: wordAnimationEnd,
-            scrub: 5,
+            scrub: 1,
           },
         }
       );

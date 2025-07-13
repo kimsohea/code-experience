@@ -7,6 +7,7 @@ import "@/assets/styles/App.scss";
 import Nav from "@/components/Nav/Nav";
 import Home from "@/components/Home/Home";
 import Profile from "@/components/Profile";
+import SiteList from "@/components/SiteList";
 
 function App() {
   const [activeSection, setActiveSection] = useState("Intro");
@@ -88,6 +89,10 @@ function App() {
       <Nav activeSection={activeSection} onSectionClick={handleSectionClick} />
       <Home sectionRef={(el) => (sectionRefs.current["Intro"] = el)} isActive={activeSection === "Intro"} />
       <Profile sectionRef={(el) => (sectionRefs.current["About Me"] = el)} isActive={activeSection === "About Me"} />
+      <SiteList
+        sectionRef={(el) => (sectionRefs.current["Site Lists"] = el)}
+        isActive={activeSection === "Site Lists"}
+      />
     </>
   );
 }

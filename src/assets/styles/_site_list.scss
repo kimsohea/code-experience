@@ -1,0 +1,144 @@
+.site_list {
+  padding: 80px 50px;
+  color: #1a1a1a;
+
+  h3 {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 30px;
+  }
+
+  .site_list_wrap {
+    *::selection {
+      background-color: #fafafa;
+      color: #1a1a1a;
+    }
+
+    figure {
+      width: 35%;
+      user-select: none;
+
+      img {
+        display: block;
+        width: 100%;
+        border-radius: 20px;
+      }
+    }
+
+    h3,
+    h4 {
+      width: 18%;
+      font-size: 22px;
+    }
+
+    p {
+      width: 42%;
+      font-size: 16px;
+      font-weight: 300;
+
+      > a {
+        margin-top: 20px;
+        font-size: 14px;
+      }
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 160px;
+      height: 60px;
+      border: 2px solid #1a1a1a;
+      border-radius: 5px;
+      text-decoration: none;
+      color: #1a1a1a;
+    }
+
+    .site_ul {
+      > li {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        column-gap: 2.5%;
+        padding: 40px 0;
+        word-break: keep-all;
+
+        &::before,
+        &::after {
+          position: absolute;
+          top: 0px;
+          left: 50%;
+          width: 90%;
+          height: 1px;
+          background-color: #1a1a1a;
+          transform: translateX(-50%);
+          content: "";
+        }
+
+        &::after {
+          display: none;
+          top: initial;
+          bottom: 0px;
+        }
+
+        &:last-child {
+          &::after {
+            display: block;
+          }
+        }
+
+        h3 {
+          position: relative;
+          color: #1a1a1a;
+          font-size: 30px;
+          font-weight: 700;
+          margin-bottom: 20px;
+        }
+
+        ul {
+          position: relative;
+          width: 42%;
+          font-weight: 300;
+          text-align: left;
+          word-break: keep-all;
+
+          li {
+            margin: 0 auto;
+            font-size: 14px;
+            color: #1a1a1a;
+
+            &:nth-of-type(1) {
+              font-size: 20px;
+              font-weight: 500;
+            }
+
+            &:nth-of-type(2) {
+              font-size: 15px;
+            }
+
+            &:nth-of-type(3) {
+              line-height: 20px;
+
+              p {
+                width: inherit;
+                font-size: inherit;
+              }
+            }
+
+            &:nth-of-type(4) {
+              display: flex;
+              column-gap: 20px;
+              margin-top: 20px;
+            }
+
+            &:not(:last-child) {
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
