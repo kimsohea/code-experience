@@ -1,4 +1,5 @@
 .site_list {
+  height: 100vh;
   padding: 80px 50px;
   color: #1a1a1a;
 
@@ -9,6 +10,13 @@
   }
 
   .site_list_wrap {
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+    align-items: center;
+    height: calc(100% - 60px);
+    padding-top: 20px;
+
     *::selection {
       background-color: #fafafa;
       color: #1a1a1a;
@@ -54,7 +62,125 @@
       color: #1a1a1a;
     }
 
+    .site_type {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 36px;
+
+      svg {
+        width: 100px;
+        height: 100px;
+        stroke-width: 0;
+        transition: all 0.5s linear;
+      }
+
+      li {
+        &.active {
+          svg {
+            stroke: #fafafa;
+            stroke-width: 0.3;
+            filter: drop-shadow(0 0 12px #fafafa);
+          }
+        }
+      }
+
+      button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 24px;
+        font-weight: 500;
+
+        span {
+          margin-top: 12px;
+          color: #1a1a1a;
+        }
+      }
+
+      .vue {
+        svg {
+          fill: #4fc08d;
+        }
+      }
+
+      .react {
+        svg {
+          fill: #61dafb;
+        }
+      }
+
+      .javascript {
+        svg {
+          fill: #f7df1e;
+        }
+      }
+
+      .jquery {
+        svg {
+          fill: #0769ad;
+        }
+      }
+    }
+
+    .site_thumb {
+      display: none;
+      flex-wrap: wrap;
+      width: 1300px;
+      gap: 18px;
+
+      &.active {
+        display: flex;
+      }
+
+      li {
+        width: calc(100% / 3 - 12px);
+
+        button {
+          width: 100%;
+          height: 100%;
+
+          &:hover {
+            figcaption {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+
+      figure {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        user-select: auto;
+        overflow: hidden;
+
+        img {
+          height: 100%;
+        }
+
+        figcaption {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 101%;
+          height: 101%;
+          background-color: #fafafa;
+          transform: translate(-50%, -50%);
+          transition: opacity 0.5s linear;
+          font-size: 24px;
+          font-weight: 300;
+          opacity: 0;
+        }
+      }
+    }
+
     .site_ul {
+      display: none;
       > li {
         position: relative;
         display: flex;
