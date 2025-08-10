@@ -7,6 +7,9 @@ import fs from "fs";
 export default defineConfig({
   base: "/code-experience/",
   plugins: [react()],
+  build: {
+    outDir: "dist",
+  },
   server: {
     host: true,
     port: 8080,

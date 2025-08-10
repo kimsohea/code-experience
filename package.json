@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://kimsohea.github.io/code-experience",
   "scripts": {
     "dev": "cross-env HTTPS=true SSL_CRT_FILE=./cert.pem SSL_KEY_FILE=./key.pem vite",
     "build": "vite build",
