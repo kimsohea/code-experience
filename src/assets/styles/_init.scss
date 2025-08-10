@@ -85,6 +85,10 @@ video {
   box-sizing: border-box;
 }
 
+body {
+  height: fit-content;
+}
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
