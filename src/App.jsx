@@ -11,18 +11,23 @@ import SiteList from "@/components/SiteList";
 
 function App() {
   const [activeSection, setActiveSection] = useState("Intro");
+  const [isScrl, setIsScrl] = useState(false);
   const { getDate } = useLunState();
 
   const sectionRefs = useRef({});
 
-  const handleSectionClick = (sectionId) => {
+  const handleClick = (sectionId) => {
+    if (isScrl) return;
     const sectionRef = sectionRefs.current[sectionId];
+    setActiveSection(sectionId);
+    setIsScrl(true);
     if (sectionRef && sectionId !== activeSection) {
       sectionRef.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
-    }
+      setTimeout(() => setIsScrl(false), 600);
+    } else setIsScrl(false);
   };
 
   useEffect(() => {
@@ -30,17 +35,17 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (isScrl) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
-            setActiveSection(entry.target.id);
-          }
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) setActiveSection(entry.target.id);
         });
       },
       {
-        threshold: [0, 0.2, 1],
-        rootMargin: "-20% 0px -20% 0px", // 상하 20% 마진
+        threshold: 0.5,
+        rootMargin: "0px 0px -10% 0px",
       }
     );
 
@@ -51,11 +56,11 @@ function App() {
     });
 
     return () => observer.disconnect();
-  }, [activeSection]);
+  }, [isScrl, activeSection]);
 
   return (
     <>
-      <Nav activeSection={activeSection} onSectionClick={handleSectionClick} />
+      <Nav actSec={activeSection} secClick={handleClick} />
       <Home sectionRef={(el) => (sectionRefs.current["Intro"] = el)} isActive={activeSection === "Intro"} />
       <Profile sectionRef={(el) => (sectionRefs.current["About_Me"] = el)} isActive={activeSection === "About_Me"} />
       <SiteList
