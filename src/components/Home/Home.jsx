@@ -4,7 +4,7 @@ import HomeBnr from "./HomeBnr";
 
 const Home = ({ sectionRef, isActive }) => {
   return (
-    <section className={isActive ? "home active" : "home"} ref={sectionRef}>
+    <section id="Intro" className={isActive ? "home active" : "home"} ref={sectionRef}>
       <TopText />
       <HomeBnr />
       <ul className="home_txt">

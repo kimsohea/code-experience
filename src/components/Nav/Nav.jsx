@@ -6,9 +6,9 @@ const Nav = ({ activeSection, onSectionClick }) => {
   const { idx } = useLunState();
   const sections = [
     { id: "Intro", label: "Intro" },
-    { id: "About Me", label: "About Me" },
-    { id: "Site Lists", label: "Site Lists" },
-    { id: "My Project", label: "My Project" },
+    { id: "About_Me", label: "About Me" },
+    { id: "Site_Lists", label: "Site Lists" },
+    { id: "My_Project", label: "My Project" },
   ];
 
   return (

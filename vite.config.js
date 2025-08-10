@@ -1,13 +1,19 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath, URL } from "node:url";
+import fs from "fs";
 
 // https://vite.dev/config/
 export default defineConfig({
   base: "/code-experience/",
   plugins: [react()],
   server: {
+    host: true,
     port: 8080,
+    https: {
+      key: fs.readFileSync("key.pem"),
+      cert: fs.readFileSync("cert.pem"),
+    },
     proxy: {
       "/api": {
         target: "https://apis.data.go.kr/6270000/getTourKorAttract",

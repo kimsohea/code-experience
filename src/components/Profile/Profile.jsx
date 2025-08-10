@@ -17,7 +17,7 @@ const Profile = ({ sectionRef, isActive }) => {
   const text = textArr.join("\n");
 
   return (
-    <section className={isActive ? "profile active" : "profile"} ref={sectionRef}>
+    <section id="About_Me" className={isActive ? "profile active" : "profile"} ref={sectionRef}>
       <figure className="ani_icon">
         <figure className={`sun type0${idx}`}></figure>
       </figure>

@@ -6,6 +6,16 @@ import wlabImg from "@/assets/img/wlab_img.png";
 import aykasaImg from "@/assets/img/aykasa_img.png";
 import wetooImg from "@/assets/img/wetoo_img.png";
 import aladinImg from "@/assets/img/aladin_mockup.png";
+import class01 from "@/assets/img/class01.png";
+import class02 from "@/assets/img/class02.png";
+import class04 from "@/assets/img/class04.png";
+import class05 from "@/assets/img/class05.png";
+import class06 from "@/assets/img/class06.png";
+import class07 from "@/assets/img/class07.png";
+import class08 from "@/assets/img/class08.png";
+import class09 from "@/assets/img/class09.png";
+import class10 from "@/assets/img/class10.png";
+import class11 from "@/assets/img/class11.png";
 
 export const vueSite = [
   {
@@ -95,4 +105,98 @@ export const reactSite = [
   },
 ];
 
-export const javascriptSite = [];
+export const javascriptSite = [
+  {
+    imgSrc: class01,
+    title: "초등학생 영어 학습 게임(듣기형)",
+    skill: "HTML, CSS, JavaScript",
+    myWork: "진행요소: JavaScript로 구현한 초등학생 영어 학습 게임 (듣기형)",
+    desc: " 초등학생 영어 학습을 돕기 위해 만든 작업물입니다. 정답을 맞출 때와 틀렸을때의 효과를 구현했습니다. 듣기 이전 정오답 채점 유무와 gsap을 이용해 캐릭터들의 움직임을 적용했습니다.",
+    pcUrl: "https://kimsohea.github.io/monobrain/template_01.html",
+    pcTxt: "사이트 바로가기",
+  },
+  {
+    imgSrc: class02,
+    title: "초등학생 영어 학습 게임(듣기형)",
+    skill: "HTML, CSS, JavaScript",
+    myWork: "진행요소: JavaScript로 구현한 초등학생 영어 학습 게임 (듣기형)",
+    desc: " 초등학생 영어 학습을 돕기 위해 만든 작업물입니다. 정답을 맞출 때와 틀렸을때의 효과를 구현했습니다. 듣기 이전 정오답 채점 유무와 gsap을 이용해 캐릭터들의 움직임을 적용했습니다.",
+    pcUrl: "https://kimsohea.github.io/monobrain/template_02.html",
+    pcTxt: "사이트 바로가기",
+  },
+  {
+    imgSrc: class04,
+    title: "초등학생 영어 학습 게임(쓰기형)",
+    skill: "HTML, CSS, JavaScript",
+    myWork: "진행요소: JavaScript로 구현한 초등학생 영어 학습 게임 (쓰기형)",
+    desc: " 초등학생 영어 학습을 돕기 위해 만든 작업물입니다. 정답을 맞출 때와 틀렸을때의 효과를 구현했습니다. 드래그앤드롭을 통해 원하는 위치에 문자를 재배열하고 그렇게 재배열한 문자의 정오답 유무를 채점합니다.",
+    pcUrl: "https://kimsohea.github.io/monobrain/template_04.html",
+    pcTxt: "사이트 바로가기",
+  },
+  {
+    imgSrc: class05,
+    title: "초등학생 영어 학습 게임(쓰기형)",
+    skill: "HTML, CSS, JavaScript",
+    myWork: "진행요소: JavaScript로 구현한 초등학생 영어 학습 게임 (쓰기형)",
+    desc: " 초등학생 영어 학습을 돕기 위해 만든 작업물입니다. 정답을 맞출 때와 틀렸을때의 효과를 구현했습니다. 빈칸의 문자를 채우고 채워진 값의 정오답에 따라 다른 인터랙션을 구현했습니다.",
+    pcUrl: "https://kimsohea.github.io/monobrain/template_05.html",
+    pcTxt: "사이트 바로가기",
+  },
+  {
+    imgSrc: class06,
+    title: "초등학생 영어 학습 게임(쓰기형)",
+    skill: "HTML, CSS, JavaScript",
+    myWork: "진행요소: JavaScript로 구현한 초등학생 영어 학습 게임 (쓰기형)",
+    desc: " 초등학생 영어 학습을 돕기 위해 만든 작업물입니다. 정답을 맞출 때와 틀렸을때의 효과를 구현했습니다. 채워진 값의 정오답에 따라 다른 인터랙션을 구현했습니다.",
+    pcUrl: "https://kimsohea.github.io/monobrain/template_06.html",
+    pcTxt: "사이트 바로가기",
+  },
+];
+
+export const jquerySite = [
+  {
+    imgSrc: class07,
+    title: "중학생 정보 학습 게임",
+    skill: "HTML, CSS, JavaScript, jquery",
+    myWork: "진행요소: JavaScript와 jquery로 구현한 중학생 정보 학습 게임",
+    desc: "중학생 정보 학습을 돕기 위해 만든 작업물입니다. 캐릭터 순서대로 주제에 대한 이야기를 띄우며 해당 주제에 맞지 않는 캐릭터를 선택 후 주제를 맞추면 다음으로 진행되는 방식을 구현했습니다. 1번 틀리면 기회를 주고 2번 틀리면 오답 팝업을 띄워 다음 순서로 넘어갈 수 있도록 구현했습니다.",
+    pcUrl: "https://kimsohea.github.io/monobrain/template_11.html",
+    pcTxt: "사이트 바로가기",
+  },
+  {
+    imgSrc: class08,
+    title: "중학생 정보 학습 게임",
+    skill: "HTML, CSS, JavaScript, jquery",
+    myWork: "진행요소: JavaScript와 jquery로 구현한 중학생 정보 학습 게임",
+    desc: "중학생 정보 학습을 돕기 위해 만든 작업물입니다. 빈칸의 자음에 맞는 단어를 쓰고 그 단어를 맞추면 다음 문제로 넘어갑니다. 한번씩 틀릴때마다 보기의 글자가 채워집니다. 글자수만큼의 찬스가 있습니다",
+    pcUrl: "https://kimsohea.github.io/monobrain/template_12.html",
+    pcTxt: "사이트 바로가기",
+  },
+  {
+    imgSrc: class09,
+    title: "중학생 정보 학습 게임",
+    skill: "HTML, CSS, JavaScript, jquery",
+    myWork: "진행요소: JavaScript와 jquery로 구현한 중학생 정보 학습 게임",
+    desc: "중학생 정보 학습을 돕기 위해 만든 작업물입니다. 십자말풀이 게임으로 좌측의 빈칸을 클릭하면 우측에 해당 단어의 힌트가 뜹니다. 하단의 키보드를 클릭해서 맞는 단어를 맞추는 게임으로 만약 실수로 단어를 눌렀을 시 풀고있던 칸을 클릭해서 빈칸으로 다시 비울수도 있습니다. 맞추면 겹쳐진 빈칸 글자가 회색으로 띄워집니다.",
+    pcUrl: "https://kimsohea.github.io/monobrain/template_13.html",
+    pcTxt: "사이트 바로가기",
+  },
+  {
+    imgSrc: class10,
+    title: "중학생 정보 학습 게임",
+    skill: "HTML, CSS, JavaScript, jquery",
+    myWork: "진행요소: JavaScript와 jquery로 구현한 중학생 정보 학습 게임",
+    desc: "중학생 정보 학습을 돕기 위해 만든 작업물입니다. 드래그앤드롭으로 구현된 게임으로 빈칸에 맞는 단어를 채우는 게임입니다. 한번 틀렸을땐 회색 초성으로 힌트를 주며 두번틀렸을땐 다음으로 넘어가는 팝업을 띄웁니다.",
+    pcUrl: "https://kimsohea.github.io/monobrain/template_14.html",
+    pcTxt: "사이트 바로가기",
+  },
+  {
+    imgSrc: class11,
+    title: "중학생 정보 학습 게임",
+    skill: "HTML, CSS, JavaScript, jquery",
+    myWork: "진행요소: JavaScript와 jquery로 구현한 중학생 정보 학습 게임",
+    desc: "중학생 정보 학습을 돕기 위해 만든 작업물입니다. 지도상에 있는 문제를 풀어나가는 게임으로 문제의 점수를 누적해 몇개를 맞추었는지 확인하는 기능을 넣었습니다. 문제를 틀릴 때와 맞출 때의 인터랙션을 구현했습니다.",
+    pcUrl: "https://kimsohea.github.io/monobrain/template_15.html",
+    pcTxt: "사이트 바로가기",
+  },
+];
