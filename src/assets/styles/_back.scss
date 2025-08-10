@@ -12,4 +12,10 @@
     height: 100vh;
     height: 100dvh;
   }
+
+  @supports (height: calc(env(safe-area-inset-bottom) + 100vh)) {
+    .iridescence-container {
+      height: calc(env(safe-area-inset-bottom) + 100vh);
+    }
+  }
 }
