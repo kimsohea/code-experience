@@ -6,3 +6,10 @@
   height: 100%;
   z-index: 1;
 }
+
+@media (min-width: 1080px) and (max-width: 1195px) and (min-height: 650px) and (max-height: 835px) {
+  .iridescence-container {
+    height: 100vh;
+    height: 100dvh;
+  }
+}
