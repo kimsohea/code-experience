@@ -23,7 +23,7 @@ export const vueSite = [
     title: "가방팝",
     skill: "Vue.js, REST API, vuex",
     myWork: "진행요소: 메인 페이지 Vue 버전 업그레이드(Vue3), 이벤트페이지 진행, 마이페이지 구축, shop by api 연동",
-    desc: "가방, 명품, 신발, 패션, 우먼, 아웃도어, 여행, 모바일테크, 캠핑 등 스타일의 모든 것을 판매하고 있는 사이트입니다. /n 메인페이지 내의 요소들을 Vue2 에서 Vue3로 업그레이드하는 작업을 진행하였으며, 기존 코드에서 javascript animate 함수로 구현했던 단락을 setInterval 과 css 애니메이션으로 내부 코드를 바꾸기도 했었고 이전의 퍼플리셔가 구현해 둔 jquery를 최대한 제거해서 javascript로 동작할 수 있도록 리뉴얼 작업을 진행했었습니다. /n Vue3로 업그레이드 중에 상태 관리 라이브러리 vuex를 mapGetter이 아닌 mapState로 변경하는 작업도 같이 진행했었습니다.",
+    desc: "가방, 명품, 신발, 패션, 우먼, 아웃도어, 여행, 모바일테크, 캠핑 등 스타일의 모든 것을 판매하고 있는 사이트입니다. /n 메인페이지 내의 요소들을 Vue2 에서 Vue3로 업그레이드하는 작업을 진행하였으며, 기존 코드에서 javascript animate 함수로 구현했던 단락을 setInterval 과 css 애니메이션으로 내부 코드를 바꾸기도 했었고 이전의 퍼플리셔가 구현해 둔 jquery를 최대한 제거해서 javascript로 동작할 수 있도록 리뉴얼 작업을 진행했었습니다. /n Vue3로 업그레이드 중에 상태 관리 라이브러리 변경 작업도 동시에 진행했었습니다.",
     pcUrl: "https://www.gabangpop.co.kr/",
     moUrl: "https://m.gabangpop.co.kr/",
     pcTxt: "PC 사이트 바로가기",

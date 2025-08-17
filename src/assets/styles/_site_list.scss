@@ -7,9 +7,10 @@
   color: #1a1a1a;
 
   h3 {
+    width: 1300px;
     font-size: 25px;
     font-weight: 500;
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
   }
 
   .site_list_wrap {
@@ -356,7 +357,8 @@
 
         &::after {
           content: "×";
-          display: inline-block;
+          display: inline-flex;
+          align-items: center;
           height: 24px;
           font-size: 24px;
           margin-left: 8px;

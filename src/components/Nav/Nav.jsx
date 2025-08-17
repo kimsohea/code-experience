@@ -8,7 +8,7 @@ const Nav = ({ actSec, secClick }) => {
     { id: "Intro", label: "Intro" },
     { id: "About_Me", label: "About Me" },
     { id: "Site_Lists", label: "Site Lists" },
-    { id: "My_Project", label: "My Project" },
+    { id: "Resume", label: "Contact" },
   ];
 
   return (

@@ -8,6 +8,7 @@ import Nav from "@/components/Nav/Nav";
 import Home from "@/components/Home/Home";
 import Profile from "@/components/Profile";
 import SiteList from "@/components/SiteList";
+import Resume from "@/components/Resume";
 
 function App() {
   const [activeSection, setActiveSection] = useState("Intro");
@@ -49,7 +50,7 @@ function App() {
       }
     );
 
-    const sections = [{ id: "Intro" }, { id: "About_Me" }, { id: "Site_Lists" }, { id: "My_Project" }];
+    const sections = [{ id: "Intro" }, { id: "About_Me" }, { id: "Site_Lists" }, { id: "Resume" }];
     sections.forEach((section) => {
       const element = sectionRefs.current[section.id];
       if (element) observer.observe(element);
@@ -67,6 +68,7 @@ function App() {
         sectionRef={(el) => (sectionRefs.current["Site_Lists"] = el)}
         isActive={activeSection === "Site_Lists"}
       />
+      <Resume sectionRef={(el) => (sectionRefs.current["Resume"] = el)} isActive={activeSection === "Resume"} />
     </>
   );
 }
