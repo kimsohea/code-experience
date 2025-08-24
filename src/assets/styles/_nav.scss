@@ -147,3 +147,30 @@
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  .header {
+    h1 {
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+    }
+
+    .moon_box {
+      top: 160px;
+      left: 25.5px;
+    }
+
+    .navi {
+      width: 90%;
+      .nav_ul {
+        li {
+          width: calc(100% - 36px / 4);
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -162,3 +162,35 @@
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  .profile {
+    .ani_icon {
+      margin: 0 auto 16px;
+    }
+
+    .char {
+      width: 80%;
+      flex-wrap: wrap;
+      margin: 0 auto 18px;
+
+      li {
+        width: 120px;
+        height: 130px;
+      }
+
+      svg {
+        width: 80px;
+        height: 90px;
+      }
+    }
+
+    .scroll-reveal {
+      width: 80%;
+    }
+
+    .scroll-reveal-text {
+      font-size: 18px;
+    }
+  }
+}

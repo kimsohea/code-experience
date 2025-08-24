@@ -71,3 +71,24 @@
     }
   }
 }
+
+@media screen and (max-width: 767px) {
+  .home {
+    .top_txt {
+      width: 80%;
+      text-align: center;
+    }
+
+    .moon_info {
+      .moon_desc {
+        width: 80%;
+        text-align: center;
+      }
+    }
+
+    .home_tit {
+      width: 80%;
+      font-size: 80px;
+    }
+  }
+}
