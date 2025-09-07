@@ -174,3 +174,36 @@
     }
   }
 }
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .header {
+    display: block;
+    width: fit-content;
+
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    .moon_box {
+      top: 8.5rem;
+    }
+
+    .navi {
+      width: 95%;
+
+      .nav_ul {
+        padding: 0.5rem;
+        column-gap: 0.5rem;
+
+        li {
+          width: calc(25% - 0.375rem);
+        }
+
+        button {
+          width: 100%;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

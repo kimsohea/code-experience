@@ -134,3 +134,9 @@ button {
     overflow: hidden;
   }
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  body {
+    font-size: 3.125vw;
+  }
+}

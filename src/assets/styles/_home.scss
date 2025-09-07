@@ -92,3 +92,21 @@
     }
   }
 }
+
+@media screen and (max-width: 400px) {
+  .home {
+    .home_tit {
+      width: 80%;
+      font-size: 70px;
+    }
+  }
+}
+
+@media screen and (max-width: 361px) {
+  .home {
+    .home_tit {
+      width: 80%;
+      font-size: 60px;
+    }
+  }
+}

@@ -6,8 +6,8 @@ const Nav = ({ actSec, secClick }) => {
   const { idx } = useLunState();
   const sections = [
     { id: "Intro", label: "Intro" },
-    { id: "About_Me", label: "About Me" },
-    { id: "Site_Lists", label: "Site Lists" },
+    { id: "About_Me", label: "Mindset" },
+    { id: "Site_Lists", label: "Works" },
     { id: "Resume", label: "Contact" },
   ];
 
