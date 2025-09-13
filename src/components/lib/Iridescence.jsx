@@ -53,6 +53,11 @@ export default function Iridescence({
 }) {
   const ctnDom = useRef(null);
   const mousePos = useRef({ x: 0.5, y: 0.5 });
+  //const _height = window.innerHeight || 0;
+  //
+  //const height = useMemo(() => {
+  //  return `${_height + 110}px`
+  //}, [_height])
 
   useEffect(() => {
     if (!ctnDom.current) return;
@@ -130,12 +135,12 @@ export default function Iridescence({
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
   }, [color, speed, amplitude, mouseReact]);
-  
-  
+
   return (
     <div
       ref={ctnDom}
       className="iridescence-container"
+      //style={{ height: height }}
       {...rest}
     />
   );
