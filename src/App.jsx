@@ -40,7 +40,7 @@ function App() {
     if (!target) return;
     setIsAuto(true);
     window.scrollTo({ top: target.offsetTop, behavior: "smooth" });
-    const timer = setTimeout(() => setIsAuto(false), 600); // smooth scroll 평균 시간 
+    const timer = setTimeout(() => setIsAuto(false), 200); // smooth scroll 평균 시간 
     return () => clearTimeout(timer);
   }, [actSec]);
 
