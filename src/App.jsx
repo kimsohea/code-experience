@@ -11,22 +11,20 @@ import SiteList from "@/components/SiteList";
 import Resume from "@/components/Resume";
 
 function App() {
-  const [activeSection, setActiveSection] = useState("Intro");
+  const [actSec, setActSec] = useState("Intro");
   const [isScrl, setIsScrl] = useState(false);
+  const [isAuto, setIsAuto] = useState(false);
   const { getDate } = useLunState();
 
-  const sectionRefs = useRef({});
+  const secRefs = useRef({});
 
-  const handleClick = (sectionId) => {
+  const handleClick = (secId) => {
     if (isScrl) return;
-    const sectionRef = sectionRefs.current[sectionId];
-    setActiveSection(sectionId);
+    const secRef = secRefs.current[secId];
+    setActSec(secId);
     setIsScrl(true);
-    if (sectionRef && sectionId !== activeSection) {
-      sectionRef.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+    if (secRef && secId !== actSec) {
+      secRef.scrollIntoView({ behavior: "smooth", block: "start" });
       setTimeout(() => setIsScrl(false), 600);
     } else setIsScrl(false);
   };
@@ -36,39 +34,60 @@ function App() {
   }, []);
 
   useEffect(() => {
+    if (actSec !== "Site_Lists") return;
+    if (isAuto) return;
+    const target = secRefs.current["Site_Lists"];
+    if (!target) return;
+    setIsAuto(true);
+    window.scrollTo({ top: target.offsetTop, behavior: "smooth" });
+    const timer = setTimeout(() => setIsAuto(false), 600); // smooth scroll 평균 시간 
+    return () => clearTimeout(timer);
+  }, [actSec]);
+
+  useEffect(() => {
+    if (isScrl) return;
+    const siteListEl = secRefs.current["Site_Lists"];
+    if (!siteListEl) return;
+    const siteObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && entry.intersectionRatio > 0.1) setActSec("Site_Lists");
+    }, { threshold: 0.1 });
+
+    siteObserver.observe(siteListEl);
+    return () => siteObserver.disconnect();
+  }, [isScrl]);
+
+  useEffect(() => {
     if (isScrl) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.5) setActiveSection(entry.target.id);
+    const obsrv = new IntersectionObserver(
+      (ent) => {
+        ent.forEach((etr) => {
+          const isItrs = etr.isIntersecting
+          const itrsRat = etr.intersectionRatio;
+          const tarId = etr.target.id;
+          if (isItrs && itrsRat > 0.4) setActSec(tarId)
         });
       },
-      {
-        threshold: 0.5,
-        rootMargin: "0px 0px -10% 0px",
-      }
+      { threshold: 0.4, rootMargin: "0px 0px -10% 0px" }
     );
 
-    const sections = [{ id: "Intro" }, { id: "About_Me" }, { id: "Site_Lists" }, { id: "Resume" }];
-    sections.forEach((section) => {
-      const element = sectionRefs.current[section.id];
-      if (element) observer.observe(element);
+    Object.values(secRefs.current).forEach((el) => {
+      if (el) obsrv.observe(el);
     });
 
-    return () => observer.disconnect();
-  }, [isScrl, activeSection]);
+    return () => obsrv.disconnect();
+  }, [isScrl]);
 
   return (
     <>
-      <Nav actSec={activeSection} secClick={handleClick} />
-      <Home sectionRef={(el) => (sectionRefs.current["Intro"] = el)} isActive={activeSection === "Intro"} />
-      <Profile sectionRef={(el) => (sectionRefs.current["About_Me"] = el)} isActive={activeSection === "About_Me"} />
+      <Nav actSec={actSec} secClick={handleClick} />
+      <Home sectionRef={(el) => (secRefs.current["Intro"] = el)} isActive={actSec === "Intro"} />
+      <Profile sectionRef={(el) => (secRefs.current["About_Me"] = el)} isActive={actSec === "About_Me"} />
       <SiteList
-        sectionRef={(el) => (sectionRefs.current["Site_Lists"] = el)}
-        isActive={activeSection === "Site_Lists"}
+        sectionRef={(el) => (secRefs.current["Site_Lists"] = el)}
+        isActive={actSec === "Site_Lists"}
       />
-      <Resume sectionRef={(el) => (sectionRefs.current["Resume"] = el)} isActive={activeSection === "Resume"} />
+      <Resume sectionRef={(el) => (secRefs.current["Resume"] = el)} isActive={actSec === "Resume"} />
     </>
   );
 }
