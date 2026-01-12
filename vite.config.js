@@ -1,8 +1,8 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath, URL } from "node:url";
-import process from "node:process";
-import { readFileSync } from "fs";
+// import process from "node:process";
+// import { readFileSync } from "fs";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -26,12 +26,12 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/date/, ""),
       },
     },
-    ...(process.env.NODE_ENV !== "production" && {
-      https: {
-        key: readFileSync("key.pem"),
-        cert: readFileSync("cert.pem"),
-      },
-    }),
+    // ...(process.env.NODE_ENV !== "production" && {
+    //   https: {
+    //     key: readFileSync("key.pem"),
+    //     cert: readFileSync("cert.pem"),
+    //   },
+    // }),
   },
   resolve: {
     alias: {
