@@ -55,10 +55,10 @@ const CntcSvg = () => (
 const Nav = ({ actSec, secClick }) => {
   const { idx } = useLunState();
   const sections = [
-    { id: "Intro", label: "Intro", svg: <HomeSvg /> },
-    { id: "Mindset", label: "Mindset", svg: <MindSvg /> },
-    { id: "Works", label: "Works", svg: <SiteSvg /> },
-    { id: "Contact", label: "Contact", svg: <CntcSvg /> },
+    { id: "Intro", svg: <HomeSvg /> },
+    { id: "Mindset", svg: <MindSvg /> },
+    { id: "Works", svg: <SiteSvg /> },
+    { id: "Contact", svg: <CntcSvg /> },
   ];
 
   return (

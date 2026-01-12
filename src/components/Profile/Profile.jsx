@@ -68,7 +68,7 @@ const Profile = ({ secRef, isAct }) => {
   const text = textArr.join("\n");
 
   return (
-    <section id="About_Me" className={isAct ? "profile active" : "profile"} ref={secRef}>
+    <section id="Mindset" className={isAct ? "profile active" : "profile"} ref={secRef}>
       {/* <figure className="ani_icon">
         <figure className={`sun type0${idx}`}></figure>
       </figure>

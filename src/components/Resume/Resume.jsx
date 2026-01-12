@@ -40,7 +40,7 @@ const Resume = ({ secRef, isAct }) => {
   ];
 
   return (
-    <section id="Resume" className={isAct ? "resume active" : "resume"} ref={secRef}>
+    <section id="Contact" className={isAct ? "resume active" : "resume"} ref={secRef}>
       {/* <h3>Contact</h3> */}
       {/* <div>
         <p>
