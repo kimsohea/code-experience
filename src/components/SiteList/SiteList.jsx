@@ -62,7 +62,7 @@ const SiteList = ({ secRef, isAct }) => {
 
   return (
     <section id="Site_Lists" className={isAct ? "site_list active" : "site_list"} ref={secRef}>
-      <h3>참여 프로젝트 (단체 + 개인)</h3>
+      {/* <h3>참여 프로젝트 (단체 + 개인)</h3> */}
       {/* <ul className="site_type">
         {typeList.map(({ tit, comp }, idx) => (
           <li key={`site_${idx}`} className={activeThumb === tit ? `active ${tit}` : tit}>
@@ -71,7 +71,7 @@ const SiteList = ({ secRef, isAct }) => {
         ))}
       </ul> */}
       <article className="site_list_wrap">
-        <ul className="site_type">
+        {/* <ul className="site_type">
           <li className={activeThumb === "vue" ? "active" : ""}>
             <button className="vue" onClick={() => setActiveThumb("vue")}>
               <VueIco />
@@ -162,7 +162,7 @@ const SiteList = ({ secRef, isAct }) => {
             <a href={siteInfo.pcUrl}>{siteInfo.pcTxt}</a>
             {siteInfo.moUrl && siteInfo.moTxt && <a href={siteInfo.moUrl}>{siteInfo.moTxt}</a>}
           </div>
-        </div>
+        </div> */}
       </article>
     </section>
   );
