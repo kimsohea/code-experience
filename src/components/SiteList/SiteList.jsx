@@ -2,6 +2,8 @@ import React, { useState, useMemo, useEffect } from "react";
 
 import { vueSite, reactSite, javascriptSite, jquerySite } from "@/constants/sitelist";
 
+import Masonry from "@/components/lib/Masonry";
+
 const VueIco = () => (
   <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <title>Vue.js</title>
@@ -49,6 +51,46 @@ const SiteList = ({ secRef, isAct }) => {
   //   { tit: "vue", comp: <JQIco /> },
   // ];
 
+  const items = [
+    {
+      id: "1",
+      img: "https://picsum.photos/id/1015/600/900?grayscale",
+      url: "https://example.com/one",
+      height: 400,
+    },
+    {
+      id: "2",
+      img: "https://picsum.photos/id/1011/600/750?grayscale",
+      url: "https://example.com/two",
+      height: 250,
+    },
+    {
+      id: "3",
+      img: "https://picsum.photos/id/1020/600/800?grayscale",
+      url: "https://example.com/three",
+      height: 600,
+    },
+    {
+      id: "4",
+      img: "https://picsum.photos/id/1020/600/800?grayscale",
+      url: "https://example.com/three",
+      height: 420,
+    },
+    {
+      id: "5",
+      img: "https://picsum.photos/id/1020/600/800?grayscale",
+      url: "https://example.com/three",
+      height: 540,
+    },
+    {
+      id: "6",
+      img: "https://picsum.photos/id/1020/600/800?grayscale",
+      url: "https://example.com/three",
+      height: 600,
+    },
+    // ... more items
+  ];
+
   const handleSite = (idx) => {
     setSiteIdx(idx);
     setInfoFlg(true);
@@ -71,6 +113,18 @@ const SiteList = ({ secRef, isAct }) => {
         ))}
       </ul> */}
       <article className="site_list_wrap">
+        <Masonry
+          items={items}
+          isAct={isAct}
+          ease="power3.out"
+          duration={0.6}
+          stagger={0.05}
+          aniFrom="bottom"
+          hoverSFlg={true}
+          hoverScale={0.95}
+          focusBlr={true}
+          hoverClr={true}
+        />
         {/* <ul className="site_type">
           <li className={activeThumb === "vue" ? "active" : ""}>
             <button className="vue" onClick={() => setActiveThumb("vue")}>
