@@ -128,9 +128,9 @@ const Masonry = ({
           sel,
           {
             opacity: 0,
+            ...base,
             x,
             y,
-            ...base,
             ...(focusBlr && { filter: "blur(10px)" }),
           },
           {
@@ -145,7 +145,7 @@ const Masonry = ({
         );
       } else {
         gsap.to(sel, {
-          y: item.y - 150,
+          y: item.y,
           opacity: 0,
           duration: 0.4,
           ease: "power2.in",
