@@ -18,7 +18,7 @@ function App() {
 
   const secRefs = useRef({});
 
-  const handleClick = (secId) => {
+  const clickFn = (secId) => {
     if (isScrl) return;
     const secRef = secRefs.current[secId];
     setActSec(secId);
@@ -33,42 +33,49 @@ function App() {
     getDate();
   }, []);
 
+  // 프로젝트 리스트 스크롤 처리
   useEffect(() => {
-    if (actSec !== "Site_Lists") return;
+    if (actSec !== "Works") return;
     if (isAuto) return;
-    const target = secRefs.current["Site_Lists"];
+    const target = secRefs.current["Works"];
     if (!target) return;
     setIsAuto(true);
     window.scrollTo({ top: target.offsetTop, behavior: "smooth" });
-    const timer = setTimeout(() => setIsAuto(false), 200); // smooth scroll 평균 시간 
+    const timer = setTimeout(() => setIsAuto(false), 200); // smooth scroll 평균 시간
     return () => clearTimeout(timer);
   }, [actSec]);
 
+  // 프로젝트 리스트 스크롤 추적
   useEffect(() => {
     if (isScrl) return;
-    const siteListEl = secRefs.current["Site_Lists"];
-    if (!siteListEl) return;
-    const siteObserver = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && entry.intersectionRatio > 0.1) setActSec("Site_Lists");
-    }, { threshold: 0.1 });
+    const siteLEl = secRefs.current["Works"];
+    if (!siteLEl) return;
+    const siteObsr = new IntersectionObserver(
+      ([etr]) => {
+        const isItrs = etr.isIntersecting;
+        const itrsRat = etr.intersectionRatio;
+        if (isItrs && itrsRat > 0.1) setActSec("Works");
+      },
+      { threshold: 0.1 },
+    );
 
-    siteObserver.observe(siteListEl);
-    return () => siteObserver.disconnect();
+    siteObsr.observe(siteLEl);
+    return () => siteObsr.disconnect();
   }, [isScrl]);
 
+  // 전체 단락 스크롤 추적
   useEffect(() => {
     if (isScrl) return;
 
     const obsrv = new IntersectionObserver(
       (ent) => {
         ent.forEach((etr) => {
-          const isItrs = etr.isIntersecting
+          const isItrs = etr.isIntersecting;
           const itrsRat = etr.intersectionRatio;
-          const tarId = etr.target.id;
-          if (isItrs && itrsRat > 0.4) setActSec(tarId)
+          if (isItrs && itrsRat > 0.4) setActSec(etr.target.id);
         });
       },
-      { threshold: 0.4, rootMargin: "0px 0px -10% 0px" }
+      { threshold: 0.4, rootMargin: "0px 0px -10% 0px" },
     );
 
     Object.values(secRefs.current).forEach((el) => {
@@ -80,14 +87,11 @@ function App() {
 
   return (
     <>
-      <Nav actSec={actSec} secClick={handleClick} />
-      <Home sectionRef={(el) => (secRefs.current["Intro"] = el)} isActive={actSec === "Intro"} />
-      <Profile sectionRef={(el) => (secRefs.current["About_Me"] = el)} isActive={actSec === "About_Me"} />
-      <SiteList
-        sectionRef={(el) => (secRefs.current["Site_Lists"] = el)}
-        isActive={actSec === "Site_Lists"}
-      />
-      <Resume sectionRef={(el) => (secRefs.current["Resume"] = el)} isActive={actSec === "Resume"} />
+      <Nav actSec={actSec} secClick={clickFn} />
+      <Home secRef={(el) => (secRefs.current["Intro"] = el)} isAct={actSec === "Intro"} />
+      <Profile secRef={(el) => (secRefs.current["Mindset"] = el)} isAct={actSec === "Mindset"} />
+      <SiteList secRef={(el) => (secRefs.current["Works"] = el)} isAct={actSec === "Works"} />
+      <Resume secRef={(el) => (secRefs.current["Contact"] = el)} isAct={actSec === "Contact"} />
     </>
   );
 }

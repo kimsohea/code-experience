@@ -2,9 +2,9 @@ import SplitText from "@/components/lib/SplitText";
 import TopText from "./TopText";
 import HomeBnr from "./HomeBnr";
 
-const Home = ({ sectionRef, isActive }) => {
+const Home = ({ secRef, isAct }) => {
   return (
-    <section id="Intro" className={isActive ? "home active" : "home"} ref={sectionRef}>
+    <section id="Intro" className={isAct ? "home active" : "home"} ref={secRef}>
       <TopText />
       <HomeBnr />
       <ul className="home_txt">
