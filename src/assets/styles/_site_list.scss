@@ -37,7 +37,50 @@
         border-radius: 20px;
       }
     }
+
+    .list_m {
+      position: relative;
+      z-index: 5;
+    }
   }
+
+  .site_flt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 0;
+      transition: all 0.5s linear;
+    }
+
+    .vue {
+      svg {
+        fill: #4fc08d;
+      }
+    }
+
+    .react {
+      svg {
+        fill: #61dafb;
+      }
+    }
+
+    .javascript {
+      svg {
+        fill: #f7df1e;
+      }
+    }
+
+    .jquery {
+      svg {
+        fill: #0769ad;
+      }
+    }
+  }
+
   .site_type {
     display: flex;
     align-items: center;

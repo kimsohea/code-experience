@@ -44,12 +44,12 @@ const SiteList = ({ secRef, isAct, exitDir }) => {
     return infoFlg ? site[siteIdx] : {};
   }, [activeThumb, siteIdx, infoFlg]);
 
-  // const typeList = [
-  //   { tit: "vue", comp: <VueIco /> },
-  //   { tit: "react", comp: <ReactIco /> },
-  //   { tit: "vue", comp: <JSIco /> },
-  //   { tit: "vue", comp: <JQIco /> },
-  // ];
+  const typeList = [
+    { tit: "vue", comp: <VueIco /> },
+    { tit: "react", comp: <ReactIco /> },
+    { tit: "javascript", comp: <JSIco /> },
+    { tit: "jquery", comp: <JQIco /> },
+  ];
 
   const items = [
     {
@@ -105,13 +105,13 @@ const SiteList = ({ secRef, isAct, exitDir }) => {
   return (
     <section id="Works" className={isAct ? "site_list active" : "site_list"} ref={secRef}>
       {/* <h3>참여 프로젝트 (단체 + 개인)</h3> */}
-      {/* <ul className="site_type">
+      <ul className="site_flt">
         {typeList.map(({ tit, comp }, idx) => (
           <li key={`site_${idx}`} className={activeThumb === tit ? `active ${tit}` : tit}>
             <button onClick={() => setActiveThumb(tit)}>{comp}</button>
           </li>
         ))}
-      </ul> */}
+      </ul>
       <article className="site_list_wrap">
         <Masonry
           items={items}
