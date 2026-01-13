@@ -53,6 +53,7 @@ const Masonry = ({
   duration = 0.6,
   stagger = 0.05,
   aniFrom = "bottom",
+  exitDir = "down",
   hoverSFlg = true,
   hoverScale = 0.95,
   focusBlr = true,
@@ -144,8 +145,10 @@ const Masonry = ({
           },
         );
       } else {
+        const outY = exitDir === "up" ? -window.innerHeight - 200 : window.innerHeight + 200;
+
         gsap.to(sel, {
-          y: item.y,
+          y: outY,
           opacity: 0,
           duration: 0.4,
           ease: "power2.in",

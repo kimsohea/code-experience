@@ -32,7 +32,7 @@ const JQIco = () => (
   </svg>
 );
 
-const SiteList = ({ secRef, isAct }) => {
+const SiteList = ({ secRef, isAct, exitDir }) => {
   const [activeThumb, setActiveThumb] = useState("vue");
   const [siteIdx, setSiteIdx] = useState(0);
   const [infoFlg, setInfoFlg] = useState(false);
@@ -120,6 +120,7 @@ const SiteList = ({ secRef, isAct }) => {
           duration={0.6}
           stagger={0.05}
           aniFrom="bottom"
+          exitDir={exitDir}
           hoverSFlg={true}
           hoverScale={0.95}
           focusBlr={true}
