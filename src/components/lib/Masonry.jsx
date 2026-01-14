@@ -60,7 +60,7 @@ const Masonry = ({
   hoverClr = false,
   popFn = () => {},
 }) => {
-  const columns = useMedia(["(min-width:1500px)", "(min-width:1000px)", "(min-width:600px)", "(min-width:400px)"], [5, 2, 2, 1], 1);
+  const columns = useMedia(["(min-width:1500px)", "(min-width:1000px)", "(min-width:600px)", "(min-width:400px)"], [3, 3, 2, 1], 1);
 
   const [contRef, { width }] = useMeasure();
   const [imagesReady, setImagesReady] = useState(false);
@@ -146,7 +146,7 @@ const Masonry = ({
           },
         );
       } else {
-        const outY = exitDir === "up" ? -window.innerHeight - 200 : window.innerHeight + 200;
+        const outY = exitDir === "down" ? -window.innerHeight - 200 : window.innerHeight + 200;
 
         gsap.to(sel, {
           y: outY,
@@ -192,6 +192,7 @@ const Masonry = ({
             {hoverClr && <div className="color-overlay" />}
             <img src={item.imgSrc} alt={`${item.title} 사이트 이미지`} />
             <img src={item.imgSrcMo} alt={`${item.title} 사이트 이미지`} className="img_mo" />
+            <span className={item.type}>{item.type}</span>
             <p>{item.title}</p>
           </button>
         </div>

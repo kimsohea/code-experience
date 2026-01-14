@@ -144,6 +144,19 @@ export const reactSite = [
     pcTxt: "사이트 바로가기",
     height: 450,
   },
+  {
+    type: "react",
+    id: "hiddentageye",
+    imgSrc: aladinImg,
+    imgSrcMo: aladinImgMo,
+    title: "HIDDENTAG E.Y.E",
+    skill: "React, REST API, react query, Zustands, i18next, SCSS, Figma",
+    myWork: "진행요소: 리디자인부터 프론트 프로젝트 구현",
+    desc: "기존 브랜드관제 페이지를 리디자인해 프론트까지 진행했했습니다. /n 메인페이지와 서적, 굿즈 등 서브페이지도 같이 구현 했으며 제품들마다의 상세페이지도 구현했으며 대중적인 웹 쇼핑몰에서 볼 수 있는 버튼형 리스트 및 서브메뉴 구현을 통해 심플한 모양으로 재구성했습니다",
+    pcUrl: "https://www.hiddentageye.com/",
+    pcTxt: "사이트 바로가기",
+    height: 450,
+  },
 ];
 
 export const javascriptSite = [
