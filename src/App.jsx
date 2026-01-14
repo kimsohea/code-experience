@@ -57,7 +57,16 @@ function App() {
     const obsrv = new IntersectionObserver(
       (ent) => {
         ent.forEach((etr) => {
-          if (!etr.isIntersecting || etr.intersectionRatio <= 0.4) return;
+          if (!etr.isIntersecting) return;
+
+          // ✅ Works 전용 트리거
+          if (etr.target.classList.contains("works-trigger")) {
+            setActSec("Works");
+            return;
+          }
+
+          // ✅ 일반 섹션
+          if (etr.intersectionRatio <= 0.4) return;
           const id = etr.target.id;
           setActSec((p) => (p === id ? p : id));
         });
@@ -68,6 +77,9 @@ function App() {
     Object.values(secRefs.current).forEach((el) => {
       if (el) obsrv.observe(el);
     });
+
+    const trg = document.querySelector(".works-trigger");
+    if (trg) obsrv.observe(trg);
 
     return () => obsrv.disconnect();
   }, [isScrl]);

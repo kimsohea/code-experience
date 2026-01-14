@@ -1,3 +1,10 @@
+.works-trigger {
+  position: absolute;
+  top: 0px;
+  height: 1px;
+  width: 100%;
+}
+
 .site_list {
   position: relative;
   width: 100%;
@@ -622,9 +629,9 @@
     }
 
     .site_list_wrap {
+      height: 1200px;
       row-gap: 20px;
       align-items: center;
-      height: 1200px;
       padding-top: 10px;
 
       .site_thumb {
@@ -819,10 +826,14 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media (max-width: 400px) {
   .site_list {
     h3 {
       font-size: 20px;
+    }
+
+    .site_list_wrap {
+      height: 2000px;
     }
 
     .site_type {
