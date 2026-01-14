@@ -7,6 +7,7 @@ import "@/assets/styles/App.scss";
 import Nav from "@/components/Nav/Nav";
 import Home from "@/components/Home/Home";
 import Profile from "@/components/Profile";
+import Tools from "@/components/Tools";
 import SiteList from "@/components/SiteList";
 import Resume from "@/components/Resume";
 
@@ -76,6 +77,7 @@ function App() {
       <Nav actSec={actSec} secClick={clickFn} />
       <Home secRef={(el) => (secRefs.current["Intro"] = el)} isAct={actSec === "Intro"} />
       <Profile secRef={(el) => (secRefs.current["Mindset"] = el)} isAct={actSec === "Mindset"} />
+      {/* <Tools secRef={(el) => (secRefs.current["Tools"] = el)} isAct={actSec === "Tools"} /> */}
       <SiteList secRef={(el) => (secRefs.current["Works"] = el)} isAct={actSec === "Works"} exitDir={exitDir} />
       <Resume secRef={(el) => (secRefs.current["Contact"] = el)} isAct={actSec === "Contact"} />
     </>

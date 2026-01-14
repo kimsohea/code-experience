@@ -57,6 +57,7 @@ const Nav = ({ actSec, secClick }) => {
   const sections = [
     { id: "Intro", svg: <HomeSvg /> },
     { id: "Mindset", svg: <MindSvg /> },
+    // { id: "Tools", svg: <ToolSvg /> },
     { id: "Works", svg: <SiteSvg /> },
     { id: "Contact", svg: <CntcSvg /> },
   ];
