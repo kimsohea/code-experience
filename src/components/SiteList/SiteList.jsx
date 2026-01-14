@@ -33,16 +33,14 @@ const JQIco = () => (
 );
 
 const SiteList = ({ secRef, isAct, exitDir }) => {
-  const [activeThumb, setActiveThumb] = useState("vue");
+  const DEF_FLT = ["vue", "react"];
+  const [flt, setFlt] = useState(DEF_FLT);
   const [siteIdx, setSiteIdx] = useState(0);
   const [infoFlg, setInfoFlg] = useState(false);
-  const [winWidth, setWinWidth] = useState(window.innerWidth);
 
   const typeList = [
     { tit: "vue", comp: <VueIco /> },
     { tit: "react", comp: <ReactIco /> },
-    { tit: "javascript", comp: <JSIco /> },
-    { tit: "jquery", comp: <JQIco /> },
   ];
 
   const items = useRef([...vueSite, ...reactSite]);
@@ -56,25 +54,34 @@ const SiteList = ({ secRef, isAct, exitDir }) => {
     setInfoFlg(true);
   };
 
-  useEffect(() => {
-    const handleResize = () => setWinWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  const fltFn = (tit) => {
+    setFlt((p) => {
+      if (p.includes(tit)) {
+        const next = p.filter((v) => v !== tit);
+        return next.length ? next : DEF_FLT;
+      }
+      return [...p, tit];
+    });
+  };
+
+  const fltItems = useMemo(() => {
+    if (!flt.length) return [];
+    return items.current.filter((it) => flt.includes(it.type));
+  }, [flt]);
 
   return (
     <section id="Works" className={isAct ? "site_list active" : "site_list"} ref={secRef}>
       {/* <h3>참여 프로젝트 (단체 + 개인)</h3> */}
       <ul className="site_flt">
-        {typeList.map(({ tit, comp }, idx) => (
-          <li key={`site_${idx}`} className={activeThumb === tit ? `active ${tit}` : tit}>
-            <button onClick={() => setActiveThumb(tit)}>{comp}</button>
+        {typeList.map(({ tit }, idx) => (
+          <li key={`site_${idx}`} className={flt.includes(tit) ? `active ${tit}` : tit}>
+            <button onClick={() => fltFn(tit)}>{tit}</button>
           </li>
         ))}
       </ul>
       <article className="site_list_wrap">
         <Masonry
-          items={items.current}
+          items={fltItems}
           isAct={isAct}
           ease="power3.out"
           duration={0.6}

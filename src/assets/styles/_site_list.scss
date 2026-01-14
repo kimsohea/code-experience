@@ -47,7 +47,7 @@
       img {
         width: 100%;
         object-fit: cover;
-        opacity: 0.1;
+        opacity: 0.02;
       }
 
       p {
@@ -120,7 +120,20 @@
   .site_flt {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    column-gap: 8px;
+
+    button {
+      padding: 8px 12px;
+      font-size: 16px;
+      font-weight: 300;
+      color: #fafafa;
+      text-transform: uppercase;
+    }
+
+    li {
+      border-radius: 16px;
+    }
 
     svg {
       width: 24px;
@@ -130,24 +143,40 @@
     }
 
     .vue {
+      color: #1a1a1a;
+      background-color: #ddd;
+
       svg {
         fill: #4fc08d;
+      }
+      &.active {
+        background-color: #4fc08d;
       }
     }
 
     .react {
+      color: #1a1a1a;
+      background-color: #ddd;
+
       svg {
         fill: #61dafb;
+      }
+      &.active {
+        background-color: #61dafb;
       }
     }
 
     .javascript {
+      background-color: #f7df1e;
+
       svg {
         fill: #f7df1e;
       }
     }
 
     .jquery {
+      background-color: #0769ad;
+
       svg {
         fill: #0769ad;
       }
