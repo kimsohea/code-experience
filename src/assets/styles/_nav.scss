@@ -15,9 +15,8 @@
   }
 
   h1 {
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
-      "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
-      "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+      "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
     font-weight: 100;
   }
 
@@ -236,6 +235,44 @@
         button {
           width: 100%;
           font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    .navi {
+      width: fit-content;
+
+      .nav_ul {
+        padding: 0.5rem;
+        column-gap: 0.5rem;
+
+        li {
+          width: fit-content;
+        }
+
+        button {
+          width: 100%;
+          column-gap: 0;
+          padding: 12px;
+        }
+
+        span {
+          width: 0;
+          font-size: 0;
+          transition: width 1s linear;
+        }
+
+        .active {
+          column-gap: 6px;
+
+          span {
+            font-size: 1rem;
+            width: fit-content;
+          }
         }
       }
     }

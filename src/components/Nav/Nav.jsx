@@ -72,7 +72,7 @@ const Nav = ({ actSec, secClick }) => {
             <li key={sec.id}>
               <button onClick={() => secClick(sec.id)} className={`${actSec === sec.id ? "active" : ""}`}>
                 {sec.svg}
-                {sec.id}
+                <span>{sec.id}</span>
               </button>
             </li>
           ))}
