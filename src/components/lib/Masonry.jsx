@@ -58,8 +58,9 @@ const Masonry = ({
   hoverScale = 0.95,
   focusBlr = true,
   hoverClr = false,
+  popFn = () => {},
 }) => {
-  const columns = useMedia(["(min-width:1500px)", "(min-width:1000px)", "(min-width:600px)", "(min-width:400px)"], [5, 4, 3, 2], 1);
+  const columns = useMedia(["(min-width:1500px)", "(min-width:1000px)", "(min-width:600px)", "(min-width:400px)"], [5, 2, 2, 1], 1);
 
   const [contRef, { width }] = useMeasure();
   const [imagesReady, setImagesReady] = useState(false);
@@ -185,19 +186,17 @@ const Masonry = ({
 
   return (
     <div ref={contRef} className="list_m">
-      {grid.map((item) => (
-        <div
-          key={item.id}
-          data-key={item.id}
-          className="item-m-wrapper"
-          onClick={() => window.open(item.url, "_blank", "noopener")}
-          onMouseEnter={(e) => enterFn(e, item)}
-          onMouseLeave={(e) => leaveFn(e, item)}
-        >
-          <div className="item-m-img" style={{ backgroundColr: "#ddd" }}>
+      {grid.map((item, idx) => (
+        <ul key={item.id} data-key={item.id} className="item-m-wrapper" onMouseEnter={(e) => enterFn(e, item)} onMouseLeave={(e) => leaveFn(e, item)}>
+          <li key={`${item.id}_${idx}`} className="item-m-img">
             {hoverClr && <div className="color-overlay" />}
-          </div>
-        </div>
+            <button onClick={() => popFn(idx)}>
+              <img src={item.imgSrc} alt={`${item.title} 사이트 이미지`} />
+              <img src={item.imgSrcMo} alt={`${item.title} 사이트 이미지`} className="img_mo" />
+              <p>{item.title}</p>
+            </button>
+          </li>
+        </ul>
       ))}
     </div>
   );

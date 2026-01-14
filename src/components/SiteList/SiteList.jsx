@@ -38,12 +38,6 @@ const SiteList = ({ secRef, isAct, exitDir }) => {
   const [infoFlg, setInfoFlg] = useState(false);
   const [winWidth, setWinWidth] = useState(window.innerWidth);
 
-  const siteInfo = useMemo(() => {
-    const siteList = { vueSite, reactSite, javascriptSite, jquerySite };
-    const site = siteList[`${activeThumb}Site`];
-    return infoFlg ? site[siteIdx] : {};
-  }, [activeThumb, siteIdx, infoFlg]);
-
   const typeList = [
     { tit: "vue", comp: <VueIco /> },
     { tit: "react", comp: <ReactIco /> },
@@ -51,47 +45,13 @@ const SiteList = ({ secRef, isAct, exitDir }) => {
     { tit: "jquery", comp: <JQIco /> },
   ];
 
-  const items = [
-    {
-      id: "1",
-      img: "https://picsum.photos/id/1015/600/900?grayscale",
-      url: "https://example.com/one",
-      height: 400,
-    },
-    {
-      id: "2",
-      img: "https://picsum.photos/id/1011/600/750?grayscale",
-      url: "https://example.com/two",
-      height: 250,
-    },
-    {
-      id: "3",
-      img: "https://picsum.photos/id/1020/600/800?grayscale",
-      url: "https://example.com/three",
-      height: 600,
-    },
-    {
-      id: "4",
-      img: "https://picsum.photos/id/1020/600/800?grayscale",
-      url: "https://example.com/three",
-      height: 420,
-    },
-    {
-      id: "5",
-      img: "https://picsum.photos/id/1020/600/800?grayscale",
-      url: "https://example.com/three",
-      height: 540,
-    },
-    {
-      id: "6",
-      img: "https://picsum.photos/id/1020/600/800?grayscale",
-      url: "https://example.com/three",
-      height: 600,
-    },
-    // ... more items
-  ];
+  const items = [...vueSite, ...reactSite];
 
-  const handleSite = (idx) => {
+  const siteInfo = useMemo(() => {
+    return infoFlg ? items[siteIdx] : {};
+  }, [siteIdx, infoFlg]);
+
+  const popFn = (idx) => {
     setSiteIdx(idx);
     setInfoFlg(true);
   };
@@ -125,6 +85,7 @@ const SiteList = ({ secRef, isAct, exitDir }) => {
           hoverScale={0.95}
           focusBlr={true}
           hoverClr={true}
+          popFn={popFn}
         />
         {/* <ul className="site_type">
           <li className={activeThumb === "vue" ? "active" : ""}>
