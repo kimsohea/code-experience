@@ -187,16 +187,16 @@ const Masonry = ({
   return (
     <div ref={contRef} className="list_m">
       {grid.map((item, idx) => (
-        <ul key={item.id} data-key={item.id} className="item-m-wrapper" onMouseEnter={(e) => enterFn(e, item)} onMouseLeave={(e) => leaveFn(e, item)}>
-          <li key={`${item.id}_${idx}`} className="item-m-img">
+        <div key={item.id} data-key={item.id} className="item-m-wrapper" onMouseEnter={(e) => enterFn(e, item)} onMouseLeave={(e) => leaveFn(e, item)}>
+          <div key={`${item.id}_${idx}`} className="item-m-img">
             {hoverClr && <div className="color-overlay" />}
             <button onClick={() => popFn(idx)}>
               <img src={item.imgSrc} alt={`${item.title} 사이트 이미지`} />
               <img src={item.imgSrcMo} alt={`${item.title} 사이트 이미지`} className="img_mo" />
               <p>{item.title}</p>
             </button>
-          </li>
-        </ul>
+          </div>
+        </div>
       ))}
     </div>
   );

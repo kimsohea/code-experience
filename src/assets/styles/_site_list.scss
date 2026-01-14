@@ -45,6 +45,7 @@
       img {
         width: 100%;
         object-fit: cover;
+        opacity: 0.1;
       }
 
       p {
@@ -65,13 +66,21 @@
         opacity: 0;
       }
 
-      li {
-        font-size: 24px;
-        font-weight: 500;
-        background-color: #fafafa;
-        border-radius: 16px;
-        box-shadow: 0 0 20px #ddd;
-        transition: background-color 0.5s linear;
+      .item-m-wrapper {
+        p {
+          font-size: 24px;
+          font-weight: 500;
+          background-color: #fafafa;
+          border-radius: 16px;
+          box-shadow: 0 0 20px #ddd;
+          transition: background-color 0.5s linear;
+        }
+
+        &:hover {
+          p {
+            opacity: 0.8;
+          }
+        }
       }
 
       .img_mo {
