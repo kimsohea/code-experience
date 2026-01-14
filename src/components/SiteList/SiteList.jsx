@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import { Fragment, useState, useRef, useMemo, useEffect } from "react";
 
 import { vueSite, reactSite, javascriptSite, jquerySite } from "@/constants/sitelist";
 
@@ -45,10 +45,10 @@ const SiteList = ({ secRef, isAct, exitDir }) => {
     { tit: "jquery", comp: <JQIco /> },
   ];
 
-  const items = [...vueSite, ...reactSite];
+  const items = useRef([...vueSite, ...reactSite]);
 
   const siteInfo = useMemo(() => {
-    return infoFlg ? items[siteIdx] : {};
+    return infoFlg ? items.current[siteIdx] : {};
   }, [siteIdx, infoFlg]);
 
   const popFn = (idx) => {
@@ -74,7 +74,7 @@ const SiteList = ({ secRef, isAct, exitDir }) => {
       </ul>
       <article className="site_list_wrap">
         <Masonry
-          items={items}
+          items={items.current}
           isAct={isAct}
           ease="power3.out"
           duration={0.6}
@@ -87,76 +87,6 @@ const SiteList = ({ secRef, isAct, exitDir }) => {
           hoverClr={true}
           popFn={popFn}
         />
-        {/* <ul className="site_type">
-          <li className={activeThumb === "vue" ? "active" : ""}>
-            <button className="vue" onClick={() => setActiveThumb("vue")}>
-              <VueIco />
-            </button>
-            <span>Vue.js</span>
-          </li>
-          <li className={activeThumb === "react" ? "active" : ""}>
-            <button className="react" onClick={() => setActiveThumb("react")}>
-              <ReactIco />
-            </button>
-            <span>React.js</span>
-          </li>
-          <li className={activeThumb === "javascript" ? "active" : ""}>
-            <button className="javascript" onClick={() => setActiveThumb("javascript")}>
-              <JSIco />
-            </button>
-            <span>{winWidth > 400 ? "JavaScript" : "JS"}</span>
-          </li>
-          <li className={activeThumb === "jquery" ? "active" : ""}>
-            <button className="jquery" onClick={() => setActiveThumb("jquery")}>
-              <JQIco />
-            </button>
-            <span>jquery</span>
-          </li>
-        </ul>
-        <ul className={activeThumb === "vue" ? "site_thumb vue active" : "site_thumb vue"}>
-          {vueSite?.map((item, idx) => (
-            <li key={`vue_site_${idx}`}>
-              <button onClick={() => handleSite(idx)}>
-                <img src={item.imgSrc} alt={`${item.title} 사이트 이미지`} />
-                <img src={item.imgSrcMo} alt={`${item.title} 사이트 이미지`} className="img_mo" />
-                <p>{item.title}</p>
-              </button>
-            </li>
-          ))}
-        </ul>
-        <ul className={activeThumb === "react" ? "site_thumb react active" : "site_thumb react"}>
-          {reactSite?.map((item, idx) => (
-            <li key={`react_site_${idx}`}>
-              <button onClick={() => handleSite(idx)}>
-                <img src={item.imgSrc} alt={`${item.title} 사이트 이미지`} />
-                <img src={item.imgSrcMo} alt={`${item.title} 사이트 이미지`} className="img_mo" />
-                <p>{item.title}</p>
-              </button>
-            </li>
-          ))}
-        </ul>
-        <ul className={activeThumb === "javascript" ? "site_thumb javascript active" : "site_thumb javascript"}>
-          {javascriptSite?.map((item, idx) => (
-            <li key={`javascript_site_${idx}`}>
-              <button onClick={() => handleSite(idx)}>
-                <img src={item.imgSrc} alt={`${item.title} 사이트 이미지`} />
-                <img src={item.imgSrcMo} alt={`${item.title} 사이트 이미지`} className="img_mo" />
-                <p>{item.title}</p>
-              </button>
-            </li>
-          ))}
-        </ul>
-        <ul className={activeThumb === "jquery" ? "site_thumb jquery active" : "site_thumb jquery"}>
-          {jquerySite?.map((item, idx) => (
-            <li key={`jquery_site_${idx}`}>
-              <button onClick={() => handleSite(idx)}>
-                <img src={item.imgSrc} alt={`${item.title} 사이트 이미지`} />
-                <img src={item.imgSrcMo} alt={`${item.title} 사이트 이미지`} className="img_mo" />
-                <p>{item.title}</p>
-              </button>
-            </li>
-          ))}
-        </ul>
         <div className={infoFlg ? "site_pop open" : "site_pop"}>
           <button className="btn_close" onClick={() => setInfoFlg(false)}>
             팝업 닫기
@@ -169,16 +99,16 @@ const SiteList = ({ secRef, isAct, exitDir }) => {
             <strong className="skill">사용 툴: {siteInfo.skill}</strong>
             <p className="desc">
               {siteInfo.desc?.split(/\r\n|\r|\n|\/n/).map((line, idx) => (
-                <React.Fragment key={idx}>
+                <Fragment key={idx}>
                   {line}
                   {idx < siteInfo.desc.split(/\r\n|\r|\n|\/n/).length - 1 && <br />}
-                </React.Fragment>
+                </Fragment>
               ))}
             </p>
             <a href={siteInfo.pcUrl}>{siteInfo.pcTxt}</a>
             {siteInfo.moUrl && siteInfo.moTxt && <a href={siteInfo.moUrl}>{siteInfo.moTxt}</a>}
           </div>
-        </div> */}
+        </div>
       </article>
     </section>
   );
