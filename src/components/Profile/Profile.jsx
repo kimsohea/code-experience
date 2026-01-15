@@ -69,7 +69,7 @@ const Profile = ({ secRef, isAct }) => {
 
   return (
     <section id="Mindset" className={isAct ? "profile active" : "profile"} ref={secRef}>
-      {/* <figure className="ani_icon">
+      <figure className="ani_icon">
         <figure className={`sun type0${idx}`}></figure>
       </figure>
       <ul className="char">
@@ -90,7 +90,7 @@ const Profile = ({ secRef, isAct }) => {
           <p>장수 장</p>
         </li>
       </ul>
-      <ScrollReveal>{text}</ScrollReveal> */}
+      <ScrollReveal>{text}</ScrollReveal>
     </section>
   );
 };

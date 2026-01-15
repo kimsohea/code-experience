@@ -40,6 +40,10 @@ function App() {
 
     const onScroll = () => {
       if (actSec === "Works") return;
+      if (actSec === "Mindset") {
+        setExitDir("up");
+        return;
+      }
 
       const y = window.scrollY;
       const top = worksEl.offsetTop;

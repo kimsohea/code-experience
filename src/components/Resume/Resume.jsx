@@ -41,8 +41,8 @@ const Resume = ({ secRef, isAct }) => {
 
   return (
     <section id="Contact" className={isAct ? "resume active" : "resume"} ref={secRef}>
-      {/* <h3>Contact</h3> */}
-      {/* <div>
+      <h3>Contact</h3>
+      <div>
         <p>
           <span>끝까지 봐주셔서 감사합니다!🥰</span>
           하단의 연락처를 통해 문의 주시면 신속히 답변드리겠습니다.
@@ -64,7 +64,7 @@ const Resume = ({ secRef, isAct }) => {
             </li>
           ))}
         </ul>
-      </div> */}
+      </div>
     </section>
   );
 };

@@ -72,7 +72,7 @@ const SiteList = ({ secRef, isAct, exitDir }) => {
   return (
     <section id="Works" className={isAct ? "site_list active" : "site_list"} ref={secRef}>
       <div className="works-trigger" />
-      {/* <h3>참여 프로젝트 (단체 + 개인)</h3> */}
+      <h3>참여 프로젝트 (단체 + 개인)</h3>
       <ul className="site_flt">
         {typeList.map(({ tit }, idx) => (
           <li key={`site_${idx}`} className={flt.includes(tit) ? `active ${tit}` : tit}>

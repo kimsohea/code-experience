@@ -5,7 +5,7 @@ import HomeBnr from "./HomeBnr";
 const Home = ({ secRef, isAct }) => {
   return (
     <section id="Intro" className={isAct ? "home active" : "home"} ref={secRef}>
-      {/* <TopText />
+      <TopText />
       <HomeBnr />
       <ul className="home_txt">
         <li>
@@ -36,7 +36,7 @@ const Home = ({ secRef, isAct }) => {
             textAlign="center"
           />
         </li>
-      </ul> */}
+      </ul>
     </section>
   );
 };
