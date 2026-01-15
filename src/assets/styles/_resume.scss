@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   column-gap: 32px;
-  background-color: #1a1a1a;
+  background-color: #333;
 
   > * {
     width: 1300px;
@@ -108,6 +108,16 @@
   .resume {
     > * {
       width: calc(100% - 120px);
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .resume {
+    li {
+      width: calc(50% - 6px);
+      display: flex;
+      align-items: center;
     }
   }
 }
