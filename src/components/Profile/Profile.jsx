@@ -69,6 +69,7 @@ const Profile = ({ secRef, isAct }) => {
 
   return (
     <section id="Mindset" className={isAct ? "profile active" : "profile"} ref={secRef}>
+      <div className="mindset-trigger" />
       <figure className="ani_icon">
         <figure className={`sun type0${idx}`}></figure>
       </figure>

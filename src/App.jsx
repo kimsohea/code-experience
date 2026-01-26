@@ -61,17 +61,19 @@ function App() {
     const obsrv = new IntersectionObserver(
       (ent) => {
         ent.forEach((etr) => {
-          if (!etr.isIntersecting) {
-            console.log(etr.target.id, "id값을 알아보아요");
+          if (!etr.isIntersecting) return;
+
+          // ✅ Mindset 전용 트리거
+          if (etr.target.classList.contains("mindset-trigger")) {
+            setActSec("Mindset");
             return;
           }
 
           // ✅ Works 전용 트리거
           if (etr.target.classList.contains("works-trigger")) {
-            console.log(etr.target.id, "트리거 보잉다!!!!!!");
             if (actSec !== "Mindset") setActSec("Works");
             return;
-          } else console.log(etr.target.id, "트리거 안 보잉다");
+          }
 
           // ✅ 일반 섹션
           if (etr.intersectionRatio <= 0.4) return;

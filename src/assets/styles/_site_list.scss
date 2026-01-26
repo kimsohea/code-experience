@@ -12,7 +12,6 @@
   min-height: 100vh;
   padding: 80px 50px;
   color: #1a1a1a;
-  background-color: #fafafa;
 
   h3 {
     width: 1300px;
@@ -54,7 +53,6 @@
       img {
         width: 100%;
         object-fit: cover;
-        opacity: 0.02;
       }
 
       p {
@@ -116,6 +114,7 @@
         display: flex;
         align-items: center;
         overflow: hidden;
+        background-color: #fff;
       }
 
       .img_mo {

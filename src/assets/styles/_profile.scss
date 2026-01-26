@@ -18,15 +18,10 @@
   text-align: center;
   word-break: keep-all;
   z-index: 2;
-  background-color: #ddd;
 
   *::selection {
     background-color: #f58aff6f;
     color: #1a1a1a;
-  }
-
-  > * {
-    display: none;
   }
 
   .scroll-reveal {

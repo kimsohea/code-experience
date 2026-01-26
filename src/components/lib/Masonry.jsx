@@ -119,6 +119,7 @@ const Masonry = ({
 
   useLayoutEffect(() => {
     if (!imagesReady) return;
+    const winWid = window.innerWidth;
 
     grid.forEach((item, idx) => {
       const sel = `[data-key="${item.id}"]`;
@@ -145,7 +146,7 @@ const Masonry = ({
             overwrite: "auto",
           },
         );
-      } else {
+      } else if (winWid > 758) {
         const outY = exitDir === "down" ? -window.innerHeight - 200 : window.innerHeight + 200;
 
         gsap.to(sel, {

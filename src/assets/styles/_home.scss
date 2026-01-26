@@ -7,15 +7,10 @@
   align-items: center;
   justify-content: center;
   row-gap: 20px;
-  background-color: #eee;
 
   *::selection {
     background-color: #9f8aff94;
     color: #fafafa;
-  }
-
-  > * {
-    display: none;
   }
 
   .top_txt {
