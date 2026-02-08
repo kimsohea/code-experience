@@ -35,8 +35,8 @@ const Resume = ({ secRef, isAct }) => {
     { type: "read", txt: "이력서 페이지 바로가기", link: "https://kimsohea.github.io/resume/", comp: <ResIco /> },
     { type: "kakao", txt: "kimsohea4425", link: "", comp: <KakaoIco /> },
     { type: "gmail", txt: "kimsohea4425@gmail.com", link: "mailto:kimsohea4425@gmail.com", comp: <GmailIco /> },
-    { type: "github", txt: "github page 바로가기", link: "https://github.com/kimsohea", comp: <GithubIco /> },
-    { type: "codepen", txt: "codepen site 바로가기", link: "https://codepen.io/kimsohea", comp: <CodePenIco /> },
+    // { type: "github", txt: "github page 바로가기", link: "https://github.com/kimsohea", comp: <GithubIco /> },
+    // { type: "codepen", txt: "codepen site 바로가기", link: "https://codepen.io/kimsohea", comp: <CodePenIco /> },
   ];
 
   return (

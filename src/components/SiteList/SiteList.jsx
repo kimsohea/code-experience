@@ -113,7 +113,7 @@ const SiteList = ({ secRef, isAct, exitDir }) => {
                 </Fragment>
               ))}
             </p>
-            <a href={siteInfo.pcUrl}>{siteInfo.pcTxt}</a>
+            <a href={siteInfo.pcUrl} target="_blank">{siteInfo.pcTxt}</a>
             {siteInfo.moUrl && siteInfo.moTxt && <a href={siteInfo.moUrl}>{siteInfo.moTxt}</a>}
           </div>
         </div>

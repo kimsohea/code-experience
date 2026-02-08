@@ -124,10 +124,12 @@
   }
 
   .site_flt {
+    max-width: 1180px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     column-gap: 8px;
+    margin: 0 auto;
 
     button {
       padding: 8px 12px;
@@ -545,7 +547,7 @@
     .site_list_wrap {
       row-gap: 20px;
       align-items: center;
-      height: calc(100% - 60px);
+      height: 960px;
       padding-top: 10px;
 
       .site_type {
