@@ -8,6 +8,7 @@
   padding: 15px 15px 0;
   box-sizing: border-box;
   z-index: 10;
+  pointer-events: none;
 
   h1,
   nav {
@@ -15,8 +16,22 @@
   }
 
   h1 {
-    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
-      "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    font-family:
+      "Pretendard Variable",
+      Pretendard,
+      -apple-system,
+      BlinkMacSystemFont,
+      system-ui,
+      Roboto,
+      "Helvetica Neue",
+      "Segoe UI",
+      "Apple SD Gothic Neo",
+      "Noto Sans KR",
+      "Malgun Gothic",
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      sans-serif;
     font-weight: 100;
   }
 
@@ -133,7 +148,9 @@
       }
 
       .navi_btn {
-        box-shadow: 20px 0 0 #000 inset, 0 0 25px #ffd974;
+        box-shadow:
+          20px 0 0 #000 inset,
+          0 0 25px #ffd974;
       }
 
       .nav_ul {
