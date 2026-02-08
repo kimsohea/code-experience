@@ -103,7 +103,7 @@
   }
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1365px) {
+@media screen and (max-width: 1365px) {
   .resume {
     > * {
       width: calc(100% - 120px);
@@ -111,7 +111,17 @@
   }
 }
 
-@media (min-width: 650px) and (max-width: 835px) and (min-height: 1020px) and (max-height: 1181px) {
+@media (max-width: 1000px) {
+  .resume {
+    li {
+      width: calc(50% - 6px);
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 835px) {
   .resume {
     width: 100%;
     overflow-x: hidden;

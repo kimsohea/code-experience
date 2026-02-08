@@ -11,7 +11,7 @@
   z-index: 1;
 }
 
-@media (min-width: 1080px) and (max-width: 1195px) and (min-height: 650px) and (max-height: 835px) {
+@media (max-width: 1195px) {
   .iridescence-container {
     width: 100vw;
     height: 120vh;
@@ -28,7 +28,7 @@
   }
 }
 
-@media (min-width: 650px) and (max-width: 835px) and (min-height: 1020px) and (max-height: 1181px) {
+@media (max-width: 835px) {
   .iridescence-container {
     width: 100vw;
     height: 120vh;

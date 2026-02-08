@@ -195,14 +195,23 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media (max-width: 615px) {
+  .profile {
+    .char {
+      width: 60%;
+      gap: 8px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
   .profile {
     .ani_icon {
       margin: 0 auto 16px;
     }
 
     .char {
-      width: 80%;
+      width: 60%;
       flex-wrap: wrap;
       margin: 0 auto 18px;
 

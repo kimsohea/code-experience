@@ -7,26 +7,25 @@ import "@/assets/styles/App.scss";
 import Nav from "@/components/Nav/Nav";
 import Home from "@/components/Home/Home";
 import Profile from "@/components/Profile";
+import Tools from "@/components/Tools";
 import SiteList from "@/components/SiteList";
 import Resume from "@/components/Resume";
 
 function App() {
-  const [activeSection, setActiveSection] = useState("Intro");
+  const [actSec, setActSec] = useState("Intro");
   const [isScrl, setIsScrl] = useState(false);
   const { getDate } = useLunState();
+  const [exitDir, setExitDir] = useState("down");
 
-  const sectionRefs = useRef({});
+  const secRefs = useRef({});
 
-  const handleClick = (sectionId) => {
+  const clickFn = (secId) => {
     if (isScrl) return;
-    const sectionRef = sectionRefs.current[sectionId];
-    setActiveSection(sectionId);
+    const secRef = secRefs.current[secId];
+    setActSec(secId);
     setIsScrl(true);
-    if (sectionRef && sectionId !== activeSection) {
-      sectionRef.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+    if (secRef && secId !== actSec) {
+      secRef.scrollIntoView({ behavior: "smooth", block: "start" });
       setTimeout(() => setIsScrl(false), 600);
     } else setIsScrl(false);
   };
@@ -36,39 +35,73 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const worksEl = secRefs.current["Works"];
+    if (!worksEl) return;
+
+    const onScroll = () => {
+      if (actSec === "Works") return;
+      if (actSec === "Mindset") {
+        setExitDir("up");
+        return;
+      }
+
+      const y = window.scrollY;
+      const top = worksEl.offsetTop;
+      setExitDir(y < top ? "down" : "up");
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [actSec]);
+
+  // 전체 단락 스크롤 추적
+  useEffect(() => {
     if (isScrl) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.5) setActiveSection(entry.target.id);
+    const obsrv = new IntersectionObserver(
+      (ent) => {
+        ent.forEach((etr) => {
+          if (!etr.isIntersecting) return;
+
+          // ✅ Mindset 전용 트리거
+          if (etr.target.classList.contains("mindset-trigger")) {
+            setActSec("Mindset");
+            return;
+          }
+
+          // ✅ Works 전용 트리거
+          if (etr.target.classList.contains("works-trigger")) {
+            if (actSec !== "Mindset") setActSec("Works");
+            return;
+          }
+
+          // ✅ 일반 섹션
+          if (etr.intersectionRatio <= 0.4) return;
+          const id = etr.target.id;
+          setActSec((p) => (p === id ? p : id));
         });
       },
-      {
-        threshold: 0.5,
-        rootMargin: "0px 0px -10% 0px",
-      }
+      { threshold: 0.4, rootMargin: "0px 0px -10% 0px" },
     );
 
-    const sections = [{ id: "Intro" }, { id: "About_Me" }, { id: "Site_Lists" }, { id: "Resume" }];
-    sections.forEach((section) => {
-      const element = sectionRefs.current[section.id];
-      if (element) observer.observe(element);
+    Object.values(secRefs.current).forEach((el) => {
+      if (el) obsrv.observe(el);
     });
 
-    return () => observer.disconnect();
-  }, [isScrl, activeSection]);
+    const trg = document.querySelector(".works-trigger");
+    if (trg) obsrv.observe(trg);
+
+    return () => obsrv.disconnect();
+  }, [isScrl]);
 
   return (
     <>
-      <Nav actSec={activeSection} secClick={handleClick} />
-      <Home sectionRef={(el) => (sectionRefs.current["Intro"] = el)} isActive={activeSection === "Intro"} />
-      <Profile sectionRef={(el) => (sectionRefs.current["About_Me"] = el)} isActive={activeSection === "About_Me"} />
-      <SiteList
-        sectionRef={(el) => (sectionRefs.current["Site_Lists"] = el)}
-        isActive={activeSection === "Site_Lists"}
-      />
-      <Resume sectionRef={(el) => (sectionRefs.current["Resume"] = el)} isActive={activeSection === "Resume"} />
+      <Nav actSec={actSec} secClick={clickFn} />
+      <Home secRef={(el) => (secRefs.current["Intro"] = el)} isAct={actSec === "Intro"} />
+      <Profile secRef={(el) => (secRefs.current["Mindset"] = el)} isAct={actSec === "Mindset"} />
+      {/* <Tools secRef={(el) => (secRefs.current["Tools"] = el)} isAct={actSec === "Tools"} /> */}
+      <SiteList secRef={(el) => (secRefs.current["Works"] = el)} isAct={actSec === "Works"} exitDir={exitDir} />
+      <Resume secRef={(el) => (secRefs.current["Contact"] = el)} isAct={actSec === "Contact"} />
     </>
   );
 }
