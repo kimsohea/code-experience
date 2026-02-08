@@ -827,6 +827,14 @@
   }
 }
 
+@media (max-width: 600px) {
+  .site_list {
+    .site_list_wrap {
+      height: 2000px;
+    }
+  }
+}
+
 @media (max-width: 400px) {
   .site_list {
     padding: 80px 24px;
