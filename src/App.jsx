@@ -12,9 +12,10 @@ import SiteList from "@/components/SiteList";
 import Resume from "@/components/Resume";
 
 function App() {
+  const { getDate } = useLunState();
+
   const [actSec, setActSec] = useState("Intro");
   const [isScrl, setIsScrl] = useState(false);
-  const { getDate } = useLunState();
   const [exitDir, setExitDir] = useState("down");
 
   const secRefs = useRef({});
