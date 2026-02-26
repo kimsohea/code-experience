@@ -14,6 +14,7 @@ import wetooImg from "@/assets/img/wetoo_img.png";
 import wetooImgMo from "@/assets/img/wetoo.svg";
 import aladinImg from "@/assets/img/aladin_mockup.png";
 import aladinImgMo from "@/assets/img/aladin.svg";
+import eyeImg from "@/assets/img/eye_img.png";
 import class01 from "@/assets/img/class01.png";
 import class02 from "@/assets/img/class02.png";
 import class04 from "@/assets/img/class04.png";
@@ -147,12 +148,12 @@ export const reactSite = [
   {
     type: "react",
     id: "hiddentageye",
-    imgSrc: aladinImg,
+    imgSrc: eyeImg,
     imgSrcMo: aladinImgMo,
     title: "HIDDENTAG E.Y.E",
-    skill: "React, REST API, react query, Zustands, i18next, SCSS, Figma",
+    skill: "React, REST API, react query, Zustand, i18next, SCSS, Figma",
     myWork: "진행요소: 리디자인부터 프론트 프로젝트 구현",
-    desc: "기존 브랜드관제 페이지를 리디자인해 프론트까지 진행했했습니다. /n 메인페이지와 서적, 굿즈 등 서브페이지도 같이 구현 했으며 제품들마다의 상세페이지도 구현했으며 대중적인 웹 쇼핑몰에서 볼 수 있는 버튼형 리스트 및 서브메뉴 구현을 통해 심플한 모양으로 재구성했습니다",
+    desc: "기존의 관제 페이지를 2.0으로 고도화하는 작업을 진행했습니다. 웹페이지 리디자인부터 전체적 프론트 페이지 구현, react grid layout 라이브러리를 사용해 사용자가 원하는 위젯 커스터마이징 기능 구현, i18next를 통한 다국어처리 영어, 중국어, 일본어, 베트남어 지원, google map 을 이용해 위치 노출, STOMP로 실시간 데이터 연동 기능을 구현, Chart.js, D3, Google Chart를 이용해 데이터를 차트화시켜 노출했습니다.",
     pcUrl: "https://www.hiddentageye.com/",
     pcTxt: "사이트 바로가기",
     height: 450,

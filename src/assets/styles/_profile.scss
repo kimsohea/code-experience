@@ -204,6 +204,14 @@
   }
 }
 
+@media (max-width: 430px) {
+  .profile {
+    .char {
+      width: 70%;
+    }
+  }
+}
+
 @media (max-width: 400px) {
   .profile {
     .ani_icon {
