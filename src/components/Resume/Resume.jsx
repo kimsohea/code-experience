@@ -31,8 +31,13 @@ const CodePenIco = () => (
 );
 
 const Resume = ({ secRef, isAct }) => {
+  const qs = new URLSearchParams(window.location.search);
+  const type = qs.get("type") || "";
+
+  const career = type === "FE" ? "?type=FE" : "";
+
   const resArr = [
-    { type: "read", txt: "이력서 페이지 바로가기", link: "https://kimsohea.github.io/resume/", comp: <ResIco /> },
+    { type: "read", txt: "이력서 페이지 바로가기", link: `https://kimsohea.github.io/resume/${career}`, comp: <ResIco /> },
     { type: "kakao", txt: "kimsohea4425", link: "", comp: <KakaoIco /> },
     { type: "gmail", txt: "kimsohea4425@gmail.com", link: "mailto:kimsohea4425@gmail.com", comp: <GmailIco /> },
     // { type: "github", txt: "github page 바로가기", link: "https://github.com/kimsohea", comp: <GithubIco /> },

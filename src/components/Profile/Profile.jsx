@@ -55,6 +55,10 @@ const GrowIco = () => (
 
 const Profile = ({ secRef, isAct }) => {
   const { idx } = useLunState();
+  const qs = new URLSearchParams(window.location.search);
+  const type = qs.get("type") || "";
+
+  const career = type === "FE" ? "프론트엔더" : "웹 퍼블리셔";
 
   const textArr = [
     "시경(詩經) 주송(周頌) 경지(敬之)에서 유래한 사자성어로",
@@ -62,7 +66,7 @@ const Profile = ({ secRef, isAct }) => {
     "학문이 갈수록 빠르게 발전함을 이른다는 이야기로 해석되기도 합니다.",
     "이처럼 현재 만들어진 프레임워크, 라이브러리, 툴을 비롯한",
     "기술 스택들과 앞으로 새롭게 생길 기술들을",
-    "나날이 습득해 나가자는 마음가짐으로 성장하는 프론트엔더입니다.",
+    `나날이 습득해 나가자는 마음가짐으로 성장하는 ${career}입니다.`,
   ];
 
   const text = textArr.join("\n");

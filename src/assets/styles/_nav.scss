@@ -78,6 +78,7 @@
         text-transform: capitalize;
         transition: all 0.5s linear;
         user-select: none;
+        pointer-events: fill;
 
         svg {
           width: 18px;
