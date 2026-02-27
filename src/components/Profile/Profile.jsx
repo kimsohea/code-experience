@@ -1,5 +1,4 @@
 import useLunState from "@/hooks/useLunState";
-import useQueryType from "@/store/useQueryType";
 
 import ScrollReveal from "@/components/lib/ScrollReveal";
 
